@@ -102,6 +102,36 @@
         "sqlite",
         "cli"
       ]
+    },
+
+    {
+      "name": "wine",
+      "version": "26R1-wine11",
+      "description": "External BoxedWine + Wine11 browser runtime package for EdgeTerm",
+      "license": "GPL-2.0",
+      "runtime": "boxedwine",
+      "type": "external-runtime",
+      "arch": "wasm32-emscripten",
+      "external": true,
+      "assetRoot": "packages/wine",
+      "wineRoot": "Wine11/boxedwine.zip",
+      "builds": {
+        "singleThreaded": "SingleThreaded",
+        "multiThreaded": "MultiThreaded"
+      },
+      "provides": [
+        "wine",
+        "wine11",
+        "winecfg",
+        "wineconsole",
+        "winetricks"
+      ],
+      "tags": [
+        "wine",
+        "boxedwine",
+        "win32",
+        "runtime"
+      ]
     }
   ]
 }
