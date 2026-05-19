@@ -1,0 +1,107 @@
+{
+  "format": "edgeterm-pkg-index-v1",
+  "generatedAt": "2026-05-19T12:00:00Z",
+  "repository": {
+    "name": "EdgeTerm Official Packages",
+    "url": "https://github.com/EdwardLab/edgeterm-packages",
+    "channel": "stable",
+    "arch": "wasm32-emscripten"
+  },
+  "packages": [
+    {
+      "name": "jq",
+      "version": "1.7.1",
+      "description": "jq JSON processor for EdgeTerm",
+      "license": "MIT",
+      "runtime": "emscripten",
+      "type": "emscripten-cli",
+      "arch": "wasm32-emscripten",
+
+      "url": "packages/jq/jq-1.7.1-edgeterm-wasm32.tar.gz",
+
+      "dependencies": [],
+
+      "bin": {
+        "jq": "jq"
+      },
+
+      "tags": [
+        "json",
+        "cli",
+        "wasm"
+      ]
+    },
+
+    {
+      "name": "lua",
+      "version": "5.5.1",
+      "description": "Lua runtime for EdgeTerm",
+      "license": "MIT",
+      "runtime": "emscripten",
+      "type": "emscripten-cli",
+      "arch": "wasm32-emscripten",
+
+      "url": "packages/lua/lua-5.5.1-edgeterm-wasm32.tar.gz",
+
+      "dependencies": [],
+
+      "bin": {
+        "lua": "lua"
+      },
+
+      "tags": [
+        "lua",
+        "cli",
+        "language"
+      ]
+    },
+
+    {
+      "name": "php",
+      "version": "8.5.6",
+      "description": "PHP WASM runtime for EdgeTerm",
+      "license": "PHP-3.01",
+      "runtime": "php-wasm",
+      "type": "emscripten-cli",
+      "arch": "wasm32-emscripten",
+
+      "url": "packages/php/php-8.5.6-edgeterm-wasm32.tar.gz",
+
+      "dependencies": [],
+
+      "bin": {
+        "php": "php_8_5.js"
+      },
+
+      "tags": [
+        "php",
+        "web",
+        "runtime"
+      ]
+    },
+
+    {
+      "name": "sqlite",
+      "version": "3.54.0",
+      "description": "SQLite CLI for EdgeTerm",
+      "license": "Public-Domain",
+      "runtime": "emscripten",
+      "type": "emscripten-cli",
+      "arch": "wasm32-emscripten",
+
+      "url": "packages/sqlite/sqlite-3.54.0-edgeterm-wasm32.tar.gz",
+
+      "dependencies": [],
+
+      "bin": {
+        "sqlite3": "sqlite3"
+      },
+
+      "tags": [
+        "database",
+        "sqlite",
+        "cli"
+      ]
+    }
+  ]
+}
