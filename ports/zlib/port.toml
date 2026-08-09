@@ -1,0 +1,24 @@
+[package]
+name = "zlib"
+version = "1.3.1"
+revision = "1edgeterm1"
+license = "Zlib"
+homepage = "https://zlib.net/"
+description = "Internal compression library dependency"
+depends = []
+build_only = true
+
+[source]
+url = "https://zlib.net/fossils/zlib-1.3.1.tar.gz"
+sha256 = "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23"
+
+[build]
+system = "custom"
+dependencies = []
+commands = [
+  "cd \"$SOURCE_DIR\"",
+  "CHOST=wasm32-wasi CC=\"$CC\" AR=\"$AR\" RANLIB=\"$RANLIB\" CFLAGS=\"$CFLAGS\" LDFLAGS=\"$LDFLAGS\" ./configure --static --prefix=/usr/local",
+  "make -j\"${BUILD_JOBS:-4}\"",
+  "make DESTDIR=/build/stage install",
+]
+

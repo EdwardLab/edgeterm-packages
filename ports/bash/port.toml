@@ -1,0 +1,31 @@
+[package]
+name = "bash"
+version = "5.3.15"
+revision = "1edgeterm2"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/bash/"
+description = "GNU Bourne Again Shell"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/bash/bash-5.3.tar.gz"
+sha256 = "0d5cd86965f869a26cf64f4b71be7b96f90a3ba8b3d74e27e8e9d9d5550f31ba"
+
+[build]
+system = "autotools"
+asyncify = true
+configure_args = ["--without-bash-malloc","--disable-nls"]
+dependencies = []
+pre = ["export ac_cv_func_memfd_create=no ac_cv_func_shm_open=no ac_cv_func_shm_mkstemp=no ac_cv_func_getcwd=yes ac_cv_func_setenv=yes ac_cv_func_putenv=yes bash_cv_termcap_lib=gnutermcap CFLAGS=\"$CFLAGS -DNO_MAIN_ENV_ARG\"", "sed -i 's/ bashbug $(SUPPORT_DIR)\\/man2html$(EXEEXT)/ bashbug/' \"$SOURCE_DIR/Makefile.in\"", "python3 /port/patch_bash.py \"$SOURCE_DIR\""]
+post = []
+include_compat = true
+link_compat = true
+emulated_mman = true
+
+[runtime]
+commands = ["bash"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["bash --version","bash -c 'printf ok'"]

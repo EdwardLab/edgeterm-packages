@@ -1,0 +1,32 @@
+[package]
+name = "netcat-openbsd"
+version = "1.238"
+revision = "1edgeterm1"
+license = "BSD-3-Clause"
+license_file = "netcat.c"
+homepage = "https://packages.debian.org/netcat-openbsd"
+description = "TCP and UDP connection utility"
+depends = []
+
+[source]
+url = "https://deb.debian.org/debian/pool/main/n/netcat-openbsd/netcat-openbsd_1.238.orig.tar.gz"
+sha256 = "9f72a37d85dec1366309fdb0172be4e67e09ec26e89f13156315149e17c02479"
+
+[build]
+system = "make"
+make_args = []
+install_args = []
+install_commands = ["mkdir -p /build/stage/usr/local/bin /build/stage/usr/local/share/man/man1", "install -m 0755 \"$SOURCE_DIR/nc\" /build/stage/usr/local/bin/nc", "ln -s nc /build/stage/usr/local/bin/netcat", "install -m 0644 \"$SOURCE_DIR/nc.1\" /build/stage/usr/local/share/man/man1/nc.1"]
+dependencies = []
+pre = ["curl -fsSLo /tmp/netcat-openbsd.debian.tar.xz https://deb.debian.org/debian/pool/main/n/netcat-openbsd/netcat-openbsd_1.238-1.debian.tar.xz", "printf '%s  %s\\n' eefeb9ff863ebd4384274b132a3ff9b492aacb244e445c34dbfb36cfee596930 /tmp/netcat-openbsd.debian.tar.xz | sha256sum -c -", "mkdir -p /tmp/netcat-openbsd-debian && tar -xf /tmp/netcat-openbsd.debian.tar.xz -C /tmp/netcat-openbsd-debian", "patch -d \"$SOURCE_DIR\" -p1 < /tmp/netcat-openbsd-debian/debian/patches/port-to-linux-with-libbsd.patch", "patch -d \"$SOURCE_DIR\" -p1 < /tmp/netcat-openbsd-debian/debian/patches/build-without-TLS-support.patch", "sed -i '/#include <bsd\\/stdlib.h>/d; /#include <bsd\\/string.h>/d' \"$SOURCE_DIR/netcat.c\" \"$SOURCE_DIR/socks.c\"", "sed -i 's|LIBS ?=.*|LIBS ?=|' \"$SOURCE_DIR/Makefile\"", "sed -i 's|-Wl,--no-add-needed||' \"$SOURCE_DIR/Makefile\"", "python3 /port/patch_netcat.py \"$SOURCE_DIR\"", "cp /port/netcat_compat.c /port/netcat_compat.h \"$SOURCE_DIR/\"", "sed -i 's|^OBJS=|OBJS= netcat_compat.o |' \"$SOURCE_DIR/Makefile\""]
+post = []
+include_compat = true
+link_compat = true
+
+[runtime]
+commands = ["nc","netcat"]
+mode = "network-preview"
+capability = "socket-preview"
+
+[tests]
+smoke = ["nc -h"]

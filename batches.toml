@@ -1,0 +1,16 @@
+[batches]
+base = [
+  "bash", "dash", "coreutils", "findutils", "grep", "sed", "gawk",
+  "diffutils", "patch", "file", "tree", "bc", "m4", "gettext",
+  "tar", "cpio", "gzip", "bzip2", "xz-utils", "zstd", "lz4", "zip",
+  "unzip", "p7zip", "brotli", "xxhash", "rhash",
+]
+developer = [
+  "make", "cmake", "ninja-build", "pkgconf", "git", "jq", "yq",
+  "sqlite3", "ripgrep", "fd-find", "bat", "eza", "hyperfine", "just",
+  "shfmt", "lua",
+]
+network = [
+  "curl", "wget", "openssh-client", "rsync", "dnsutils",
+  "netcat-openbsd", "openssl",
+]

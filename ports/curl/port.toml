@@ -1,0 +1,28 @@
+[package]
+name = "curl"
+version = "8.21.0"
+revision = "1edgeterm1"
+license = "curl"
+homepage = "https://curl.se/"
+description = "URL transfer utility"
+depends = []
+
+[source]
+url = "https://curl.se/download/curl-8.21.0.tar.bz2"
+sha256 = "ad6f2f94934b38e31e48272833c99b891d045b4565fe942a53fbd27bd3910e16"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-shared","--enable-static","--disable-ldap","--disable-ldaps","--without-libpsl","--without-libidn2","--without-zstd","--without-brotli","--without-ssl","--enable-threaded-resolver"]
+dependencies = []
+pre = []
+post = []
+threads = true
+
+[runtime]
+commands = ["curl"]
+mode = "network-preview"
+capability = "http"
+
+[tests]
+smoke = ["curl --version"]

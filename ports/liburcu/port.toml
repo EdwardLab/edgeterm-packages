@@ -1,0 +1,24 @@
+[package]
+name = "liburcu"
+version = "0.15.6"
+revision = "1edgeterm1"
+license = "LGPL-2.1-or-later"
+homepage = "https://liburcu.org/"
+description = "Internal userspace RCU dependency"
+depends = []
+build_only = true
+
+[source]
+url = "https://lttng.org/files/urcu/userspace-rcu-0.15.6.tar.bz2"
+sha256 = "850b192096eb11ebf2c70e8f97bc7da7479ee41da1bebeb44e3986908bac414f"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-shared", "--enable-static", "--enable-compiler-atomic-builtins"]
+dependencies = []
+pre = ["python3 /port/patch_liburcu.py \"$SOURCE_DIR\""]
+post = []
+include_compat = true
+link_compat = true
+threads = true
+emulated_mman = true

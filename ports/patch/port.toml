@@ -1,0 +1,27 @@
+[package]
+name = "patch"
+version = "2.8"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/patch/"
+description = "Apply patch files"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/patch/patch-2.8.tar.xz"
+sha256 = "f87cee69eec2b4fcbf60a396b030ad6aa3415f192aa5f7ee84cad5e11f7f5ae3"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls"]
+dependencies = []
+pre = ["export ac_cv_func_getgroups=yes", "sed -i 's/opendirat (/gl_opendirat (/g' \"$SOURCE_DIR/lib/opendirat.c\" \"$SOURCE_DIR/lib/opendirat.h\" \"$SOURCE_DIR/lib/backupfile.c\""]
+post = []
+
+[runtime]
+commands = ["patch"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["patch --version"]

@@ -1,0 +1,15 @@
+/.cache/
+/build/
+/dist/
+/repository/pool/
+/repository/dists/
+/repository/local-flat/
+/repository/*.zip
+/evidence/
+/keys/private/
+/acceptance/*.json
+__pycache__/
+*.py[cod]
+*.log
+*.swp
+.DS_Store

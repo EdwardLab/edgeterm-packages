@@ -1,0 +1,29 @@
+[package]
+name = "gawk"
+version = "5.4.1"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/gawk/"
+description = "GNU AWK implementation"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/gawk/gawk-5.4.1.tar.xz"
+sha256 = "07f6f7342b7febe4313fc2c2542ad93d64fe20ad8717200109f105a826f5fd37"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls","--without-mpfr","--disable-extensions"]
+dependencies = []
+pre = []
+post = []
+link_compat = true
+include_compat = true
+
+[runtime]
+commands = ["awk","gawk"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["gawk --version","printf 'a b' | gawk '{print $2}'"]

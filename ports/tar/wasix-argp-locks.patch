@@ -1,0 +1,14 @@
+--- a/gnu/argp-help.c
++++ b/gnu/argp-help.c
+@@ -35,6 +35,11 @@
+ # include <wchar.h>
+ #endif
+ 
++#if defined __wasi__
++# define flockfile(stream) ((void) (stream))
++# define funlockfile(stream) ((void) (stream))
++#endif
++
+ #ifdef _LIBC
+ # include <libintl.h>
+ # undef dgettext

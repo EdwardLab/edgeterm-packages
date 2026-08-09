@@ -1,0 +1,27 @@
+[package]
+name = "just"
+version = "1.58.0"
+revision = "1edgeterm1"
+license = "CC0-1.0"
+homepage = "https://just.systems/"
+description = "Command runner for project recipes"
+depends = []
+
+[source]
+url = "https://github.com/casey/just/archive/refs/tags/1.58.0.tar.gz"
+sha256 = "c8a36e6e9397f2fdfcb0cc246fcdb790b52a784f3c8cabc0d8baeb031852a148"
+
+[build]
+system = "cargo"
+install_args = ["install -m 755 target/wasm32-wasip1/release/just.wasm /build/stage/usr/local/bin/just"]
+dependencies = []
+pre = ["cp /port/platform_wasi.rs \"$SOURCE_DIR/src/platform/wasi.rs\"", "python3 /port/patch_just.py \"$SOURCE_DIR\""]
+post = []
+
+[runtime]
+commands = ["just"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["just --version"]

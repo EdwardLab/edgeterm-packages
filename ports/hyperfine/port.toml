@@ -1,0 +1,28 @@
+[package]
+name = "hyperfine"
+version = "1.20.0"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://github.com/sharkdp/hyperfine"
+description = "Command-line benchmarking tool"
+depends = []
+
+[source]
+url = "https://github.com/sharkdp/hyperfine/archive/refs/tags/v1.20.0.tar.gz"
+sha256 = "f90c3b096af568438be7da52336784635a962c9822f10f98e5ad11ae8c7f5c64"
+
+[build]
+system = "cargo"
+target = "wasm32-wasip1-threads"
+install_args = ["install -m 755 target/wasm32-wasip1-threads/release/hyperfine.wasm /build/stage/usr/local/bin/hyperfine"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["hyperfine"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["hyperfine --version"]

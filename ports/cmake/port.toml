@@ -1,0 +1,30 @@
+[package]
+name = "cmake"
+version = "4.4.2"
+revision = "1edgeterm2"
+license = "BSD-3-Clause"
+homepage = "https://cmake.org/"
+description = "Cross-platform build system"
+depends = []
+
+[source]
+url = "https://github.com/Kitware/CMake/releases/download/v4.4.2/cmake-4.4.2.tar.gz"
+sha256 = "1db9e61e60b6e0874c86386340b910382f3c5e75b9fbfb44d122063129a2789d"
+
+[build]
+system = "cmake"
+configure_args = ["-DCMAKE_USE_OPENSSL=OFF","-DBUILD_TESTING=OFF","-DCMake_HAVE_CXX_MAKE_UNIQUE=1","-DCMake_HAVE_CXX_UNIQUE_PTR=1","-DCMake_HAVE_CXX_FILESYSTEM=1"]
+dependencies = []
+pre = ["perl -pi -e 's/^#ifndef HAVE_FCHDIR$/#if !defined(HAVE_FCHDIR) && !defined(__wasi__)/' \"$SOURCE_DIR/Utilities/cmlibarchive/libarchive/archive_read_disk_posix.c\"", "python3 /port/patch_cmake.py \"$SOURCE_DIR\""]
+post = ["rm -rf /build/stage/usr/local/share/cmake-*/Help /build/stage/usr/local/doc /build/stage/usr/local/share/vim /build/stage/usr/local/share/emacs /build/stage/usr/local/share/bash-completion"]
+include_compat = true
+link_compat = true
+threads = true
+
+[runtime]
+commands = ["cmake","cpack","ctest"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["cmake --version"]

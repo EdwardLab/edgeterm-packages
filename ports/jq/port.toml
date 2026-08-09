@@ -1,0 +1,27 @@
+[package]
+name = "jq"
+version = "1.8.2"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://jqlang.org/"
+description = "Command-line JSON processor"
+depends = []
+
+[source]
+url = "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-1.8.2.tar.gz"
+sha256 = "71b8d6e8f5fe81f6c6d0d110e3892251f6ce76ed095abd315e26e6e1193af3af"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-shared","--enable-static","--disable-docs"]
+dependencies = []
+pre = ["export ac_cv_func_pthread_key_create=no", "export ac_cv_func_pthread_once=no", "printf '#!/bin/sh\\necho 1.8.2\\n' > \"$SOURCE_DIR/scripts/version\"", "chmod +x \"$SOURCE_DIR/scripts/version\"", "cp /toolchain/wasix-compat.c \"$SOURCE_DIR/src/wasix-compat.c\"", "sed -i 's|LIBJQ_SRC = |LIBJQ_SRC = src/wasix-compat.c |' \"$SOURCE_DIR/Makefile.am\"", "(cd \"$SOURCE_DIR\" && autoreconf -fi)"]
+post = []
+
+[runtime]
+commands = ["jq"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["jq --version","printf '{\\\"a\\\":1}' | jq -e '.a == 1'"]

@@ -1,0 +1,28 @@
+[package]
+name = "bzip2"
+version = "1.0.8"
+revision = "1edgeterm1"
+license = "bzip2-1.0.6"
+homepage = "https://sourceware.org/bzip2/"
+description = "bzip2 compression utility"
+depends = []
+
+[source]
+url = "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz"
+sha256 = "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269"
+
+[build]
+system = "make"
+make_args = ["bzip2", "bzip2recover"]
+install_args = ["PREFIX=/build/stage/usr/local"]
+dependencies = []
+pre = []
+post = ["rm -f /build/stage/usr/local/bin/bzcmp /build/stage/usr/local/bin/bzdiff /build/stage/usr/local/bin/bzegrep /build/stage/usr/local/bin/bzfgrep /build/stage/usr/local/bin/bzgrep /build/stage/usr/local/bin/bzless /build/stage/usr/local/bin/bzmore"]
+
+[runtime]
+commands = ["bzip2","bunzip2","bzcat","bzip2recover"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["bzip2 --help"]

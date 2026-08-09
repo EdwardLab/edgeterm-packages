@@ -1,0 +1,49 @@
+--- a/src/posixos.c
++++ b/src/posixos.c
+@@ -720,38 +720,46 @@
+ unsigned int
+ osync_acquire ()
+ {
++#if defined __wasi__
++  return 1;
++#else
+   if (osync_enabled())
+     {
+       struct flock fl;
+ 
+       fl.l_type = F_WRLCK;
+       fl.l_whence = SEEK_SET;
+       fl.l_start = 0;
+       fl.l_len = 1;
+       /* We don't want to keep waiting on EINTR.  */
+       if (fcntl (osync_handle, F_SETLKW, &fl) == -1)
+         {
+           perror ("fcntl()");
+           return 0;
+         }
+     }
+ 
+   return 1;
++#endif
+ }
+ 
+ void
+ osync_release ()
+ {
++#if defined __wasi__
++  return;
++#else
+   if (osync_enabled())
+     {
+       struct flock fl;
+ 
+       fl.l_type = F_UNLCK;
+       fl.l_whence = SEEK_SET;
+       fl.l_start = 0;
+       fl.l_len = 1;
+       /* We don't want to keep waiting on EINTR.  */
+       if (fcntl (osync_handle, F_SETLKW, &fl) == -1)
+         perror ("fcntl()");
+     }
++#endif
+ }

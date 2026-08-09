@@ -1,0 +1,23 @@
+--- a/src/main.c
++++ b/src/main.c
+@@ -1163,14 +1163,17 @@
+-#ifdef MK_OS_ZOS
++#if defined(MK_OS_ZOS) || defined(__wasi__)
+ extern char **environ;
+ #endif
+ 
+-#if defined(_AMIGA) || defined(MK_OS_ZOS)
++#if defined(_AMIGA) || defined(MK_OS_ZOS) || defined(__wasi__)
+ int
+ main (int argc, char **argv)
+ #else
+ int
+ main (int argc, char **argv, char **envp)
+ #endif
+ {
++#if defined(__wasi__)
++  char **envp = environ;
++#endif
+   int makefile_status = MAKE_SUCCESS;
+   struct goaldep *read_files;
+   PATH_VAR (current_directory);

@@ -1,0 +1,28 @@
+[package]
+name = "gettext"
+version = "1.0"
+revision = "1edgeterm3"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/gettext/"
+description = "GNU internationalization utilities"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/gettext/gettext-1.0.tar.gz"
+sha256 = "85d99b79c981a404874c02e0342176cf75c7698e2b51fe41031cf6526d974f1a"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-shared","--enable-static","--disable-java","--disable-csharp","--disable-libasprintf","--without-emacs"]
+dependencies = []
+pre = ["find \"$SOURCE_DIR\" -name 'getlocalename_l-unsafe.c' -type f -exec sed -i '/#error \"Please port gnulib getlocalename_l-unsafe.c to your platform!/c\\      return (struct string_with_storage) { \"C\", STORAGE_INDEFINITE };' {} +", "find \"$SOURCE_DIR\" -name getopt.c -type f -exec sed -i '/^#include <getopt.h>/i #include \"/toolchain/wasix-compat.h\"' {} +", "find \"$SOURCE_DIR\" -name fnmatch.c -type f -exec sed -i '/^# include <libc-config.h>/a #include \"/toolchain/wasix-compat.h\"' {} +"]
+post = ["rm -rf /build/stage/usr/local/share/locale /build/stage/usr/local/share/man /build/stage/usr/local/share/info /build/stage/usr/local/share/doc"]
+link_compat = true
+
+[runtime]
+commands = ["gettext","envsubst","msgattrib","msgcat","msgcmp","msgcomm","msgconv","msgen","msgexec","msgfilter","msgfmt","msggrep","msginit","msgmerge","msgunfmt","msguniq","ngettext","xgettext"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["gettext --version","msgfmt --version"]

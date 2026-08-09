@@ -1,0 +1,29 @@
+[package]
+name = "tar"
+version = "1.35"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/tar/"
+description = "GNU archive utility"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/tar/tar-1.35.tar.gz"
+sha256 = "14d55e32063ea9526e057fbf35fcabd53378e769787eff7919c3755b02d2b57e"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls"]
+dependencies = []
+pre = ["export ac_cv_func_getgroups=yes", "sed -i 's/opendirat (/gl_opendirat (/g' \"$SOURCE_DIR/gnu/opendirat.c\" \"$SOURCE_DIR/gnu/opendirat.h\" \"$SOURCE_DIR/gnu/backupfile.c\"", "sed -i '/#include <config.h>/a #include \"/toolchain/wasix-compat.h\"' \"$SOURCE_DIR/gnu/mknod.c\""]
+post = []
+link_compat = true
+include_compat = true
+
+[runtime]
+commands = ["tar"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["tar --version"]

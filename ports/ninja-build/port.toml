@@ -1,0 +1,29 @@
+[package]
+name = "ninja-build"
+version = "1.13.2"
+revision = "1edgeterm1"
+license = "Apache-2.0"
+homepage = "https://ninja-build.org/"
+description = "Small high-speed build system"
+depends = []
+
+[source]
+url = "https://github.com/ninja-build/ninja/archive/refs/tags/v1.13.2.tar.gz"
+sha256 = "974d6b2f4eeefa25625d34da3cb36bdcebe7fbce40f4c16ac0835fd1c0cbae17"
+
+[build]
+system = "cmake"
+configure_args = ["-DBUILD_TESTING=OFF","-DNINJA_BUILD_BINARY=ON","-DNINJA_FORCE_PSELECT=ON"]
+dependencies = []
+pre = []
+post = []
+link_compat = true
+threads = true
+
+[runtime]
+commands = ["ninja"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["ninja --version"]

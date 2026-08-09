@@ -1,0 +1,14 @@
+--- a/lib/getopt.c
++++ b/lib/getopt.c
+@@ -44,7 +44,10 @@
+ # define _(msgid) dgettext (GNULIB_TEXT_DOMAIN, msgid)
+ /* When used standalone, flockfile and funlockfile might not be
+    available.  */
+-# if (!defined _POSIX_THREAD_SAFE_FUNCTIONS \
++# if defined __wasi__
++#  define flockfile(fp) ((void) (fp))
++#  define funlockfile(fp) ((void) (fp))
++# elif (!defined _POSIX_THREAD_SAFE_FUNCTIONS \
+       || (defined _WIN32 && ! defined __CYGWIN__))
+ #  define flockfile(fp) /* nop */
+ #  define funlockfile(fp) /* nop */

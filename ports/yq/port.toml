@@ -1,0 +1,28 @@
+[package]
+name = "yq"
+version = "4.53.3"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://mikefarah.gitbook.io/yq/"
+description = "Command-line YAML processor"
+depends = []
+
+[source]
+url = "https://github.com/mikefarah/yq/archive/refs/tags/v4.53.3.tar.gz"
+sha256 = "fadf86d0ae3988bb40fa8aad424d0c71658493f6377285e711c7e7e313b3b238"
+
+[build]
+system = "go"
+make_args = ["-o","/build/stage/usr/local/bin/yq","."]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["yq"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["yq --version","printf 'a: 1' | yq '.a'"]
+

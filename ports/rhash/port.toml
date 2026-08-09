@@ -1,0 +1,28 @@
+[package]
+name = "rhash"
+version = "1.4.6"
+revision = "1edgeterm1"
+license = "BSD-0-Clause"
+homepage = "https://github.com/rhash/RHash"
+description = "Multi-hash checksum utility"
+depends = []
+
+[source]
+url = "https://downloads.sourceforge.net/project/rhash/rhash/1.4.6/rhash-1.4.6-src.tar.gz"
+sha256 = "9f6019cfeeae8ace7067ad22da4e4f857bb2cfa6c2deaa2258f55b2227ec937a"
+
+[build]
+system = "make"
+make_args = []
+install_args = []
+dependencies = []
+pre = ["python3 /port/patch_rhash.py", "(cd \"$SOURCE_DIR\" && CC=\"$CC\" AR=\"$AR\" ./configure --prefix=/usr/local --disable-openssl --disable-gettext --enable-static)"]
+post = []
+
+[runtime]
+commands = ["rhash","ed2k-link","gost12-256-hash","gost12-512-hash","has160-hash","magnet-link","sfv-hash","tiger-hash","tth-hash"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["rhash --version","printf test | rhash --sha256 -"]

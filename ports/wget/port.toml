@@ -1,0 +1,30 @@
+[package]
+name = "wget"
+version = "1.25.0"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/wget/"
+description = "Network download utility"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/wget/wget-1.25.0.tar.gz"
+sha256 = "766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls","--without-ssl","--without-libpsl","--disable-pcre"]
+dependencies = []
+pre = ["export ac_cv_func_flock=yes ac_cv_func_getgroups=yes ac_cv_func_getgroups_works=yes gl_cv_func_getgroups_works=yes ac_cv_type_getgroups=gid_t ac_cv_func_sigsetjmp=no"]
+post = []
+threads = true
+include_compat = true
+link_compat = true
+
+[runtime]
+commands = ["wget"]
+mode = "network-preview"
+capability = "http"
+
+[tests]
+smoke = ["wget --version"]

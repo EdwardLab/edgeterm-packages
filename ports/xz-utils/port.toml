@@ -1,0 +1,27 @@
+[package]
+name = "xz-utils"
+version = "5.8.3"
+revision = "1edgeterm1"
+license = "0BSD"
+homepage = "https://tukaani.org/xz/"
+description = "XZ compression utilities"
+depends = []
+
+[source]
+url = "https://github.com/tukaani-project/xz/releases/download/v5.8.3/xz-5.8.3.tar.gz"
+sha256 = "3d3a1b973af218114f4f889bbaa2f4c037deaae0c8e815eec381c3d546b974a0"
+
+[build]
+system = "autotools"
+configure_args = ["SKIP_WERROR_CHECK=yes","--disable-shared","--enable-static","--disable-nls"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["xz","unxz","xzcat","lzma","unlzma","lzcat","xzdec","lzmadec"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["xz --version","printf test | xz | xz -d"]

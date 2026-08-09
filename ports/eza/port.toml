@@ -1,0 +1,30 @@
+[package]
+name = "eza"
+version = "0.23.5"
+revision = "1edgeterm1"
+license = "EUPL-1.2"
+homepage = "https://eza.rocks/"
+description = "Modern directory listing utility"
+depends = []
+
+[source]
+url = "https://github.com/eza-community/eza/archive/refs/tags/v0.23.5.tar.gz"
+sha256 = "bbf179f2611c904014431740b559e8055276c12fcf978a7e31c271663548337f"
+
+[build]
+system = "cargo"
+make_args = ["--no-default-features"]
+install_args = ["install -m 755 target/wasm32-wasip1/release/eza.wasm /build/stage/usr/local/bin/eza"]
+dependencies = []
+pre = [
+  "perl -0pi -e 's/#\\[cfg\\(windows\\)\\]\\n        let stdout_term_width = \\{/#\\[cfg(not(any(unix, windows)))\\]\\n        let stdout_term_width = None;\\n        #[cfg(windows)]\\n        let stdout_term_width = {/' \"$SOURCE_DIR/src/output/mod.rs\"",
+]
+post = []
+
+[runtime]
+commands = ["eza"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["eza --version"]

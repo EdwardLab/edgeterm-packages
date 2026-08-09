@@ -1,0 +1,29 @@
+[package]
+name = "findutils"
+version = "4.11.0"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/findutils/"
+description = "GNU file search utilities"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/findutils/findutils-4.11.0.tar.xz"
+sha256 = "bfd19cb06cc71f3352d567e90284d8cdac02ac89774bbeadf0b533b0c11432fd"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls"]
+dependencies = []
+pre = ["export ac_cv_func_getgroups=yes ac_cv_func_getgroups_works=yes gl_cv_func_getgroups_works=yes ac_cv_type_getgroups=gid_t", "python3 /port/patch_findutils.py \"$SOURCE_DIR\"", "sed -i 's/opendirat (/gl_opendirat (/g; s/opendirat(/gl_opendirat(/g' \"$SOURCE_DIR/gl/lib/opendirat.c\" \"$SOURCE_DIR/gl/lib/opendirat.h\" \"$SOURCE_DIR/gl/lib/fts.c\"", "perl -0pi -e 's/#if MOUNTED_NOT_PORTED/#if MOUNTED_NOT_PORTED && !defined __wasi__/' \"$SOURCE_DIR/gl/lib/mountlist.c\"", "find \"$SOURCE_DIR\" -name getlocalename_l-unsafe.c -type f -exec perl -0pi -e 's/#elif defined __ANDROID__/#elif defined __wasi__\\n      return (struct string_with_storage) { \"C\", STORAGE_INDEFINITE };\\n#elif defined __ANDROID__/g' {} +"]
+post = []
+include_compat = true
+link_compat = true
+
+[runtime]
+commands = ["find","xargs"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["find --version","find . -maxdepth 0"]

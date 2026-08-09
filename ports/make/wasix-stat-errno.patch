@@ -1,0 +1,13 @@
+--- a/src/remake.c
++++ b/src/remake.c
+@@ -1599,6 +1599,10 @@ name_mtime (const char *name)
+     mtime = FILE_TIMESTAMP_STAT_MODTIME (name, st);
+   else if (errno == ENOENT || errno == ENOTDIR)
+     mtime = NONEXISTENT_MTIME;
++#if defined __wasi__
++  else if (errno == 0)
++    mtime = NONEXISTENT_MTIME;
++#endif
+   else
+     {
+       perror_with_name ("stat: ", name);

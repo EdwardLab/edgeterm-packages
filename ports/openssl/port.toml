@@ -1,0 +1,29 @@
+[package]
+name = "openssl"
+version = "3.6.3"
+revision = "1edgeterm1"
+license = "Apache-2.0"
+homepage = "https://www.openssl.org/"
+description = "TLS and cryptography toolkit"
+depends = []
+
+[source]
+url = "https://github.com/openssl/openssl/releases/download/openssl-3.6.3/openssl-3.6.3.tar.gz"
+sha256 = "243a86649cf6f23eeb6a2ff2456e09e5d77dd9018a54d3d96b0c6bdd6ba6c7f1"
+
+[build]
+system = "custom"
+commands = ["cd \"$SOURCE_DIR\"","CC=\"$CC\" AR=\"$AR\" RANLIB=\"$RANLIB\" perl Configure gcc no-asm no-shared no-tests no-threads no-dso no-module no-ui-console no-dgram no-dtls no-secure-memory --prefix=/usr/local --openssldir=/usr/local/etc/ssl $LDFLAGS","make -j\"${BUILD_JOBS:-4}\"","make DESTDIR=/build/stage install_sw"]
+dependencies = []
+pre = []
+post = []
+threads = true
+link_compat = true
+
+[runtime]
+commands = ["openssl"]
+mode = "network-preview"
+capability = "socket-preview"
+
+[tests]
+smoke = ["openssl version","printf test | openssl dgst -sha256"]

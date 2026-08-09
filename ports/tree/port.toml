@@ -1,0 +1,29 @@
+[package]
+name = "tree"
+version = "2.3.2"
+revision = "1edgeterm1"
+license = "GPL-2.0-or-later"
+homepage = "https://oldmanprogrammer.net/source.php?dir=projects/tree"
+description = "Recursive directory listing utility"
+depends = []
+
+[source]
+url = "https://github.com/Old-Man-Programmer/tree/archive/refs/tags/2.3.2.tar.gz"
+sha256 = "22cf32e84e3eb508d97a9e991c2c3cc006b9dcf4afed201d96311c5c57d08fcf"
+
+[build]
+system = "make"
+make_args = []
+install_args = []
+install_commands = ["mkdir -p /build/stage/usr/local/bin", "install -m 0755 \"$SOURCE_DIR/tree\" /build/stage/usr/local/bin/tree"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["tree"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["tree --version","tree -L 1 ."]

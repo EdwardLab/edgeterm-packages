@@ -1,0 +1,27 @@
+[package]
+name = "bc"
+version = "1.08.2"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/bc/"
+description = "Arbitrary precision calculator"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/bc/bc-1.08.2.tar.gz"
+sha256 = "ae470fec429775653e042015edc928d07c8c3b2fc59765172a330d3d87785f86"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls","--disable-readline"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["bc","dc"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["bc --version","printf '1+1\\n' | bc"]

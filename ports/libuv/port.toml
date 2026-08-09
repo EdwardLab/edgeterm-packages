@@ -1,0 +1,23 @@
+[package]
+name = "libuv"
+version = "1.51.0"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://libuv.org/"
+description = "Cross-platform asynchronous I/O library"
+depends = []
+build_only = true
+
+[source]
+url = "https://dist.libuv.org/dist/v1.51.0/libuv-v1.51.0-dist.tar.gz"
+sha256 = "2ceca1a7577633cf92794db5bf5512370f6cd45a5746d6e14f8c20aeab0a547b"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-shared", "--enable-static"]
+dependencies = []
+pre = ["python3 /port/patch_libuv.py \"$SOURCE_DIR\"", "(cd \"$SOURCE_DIR\" && autoreconf -fi)"]
+post = ["install -Dm644 \"$SOURCE_DIR/include/uv/posix.h\" /build/stage/usr/local/include/uv/posix.h"]
+threads = true
+include_compat = true
+link_compat = true

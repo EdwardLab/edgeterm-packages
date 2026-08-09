@@ -1,0 +1,10 @@
+--- a/Source/Modules/CMakeBuildUtilities.cmake
++++ b/Source/Modules/CMakeBuildUtilities.cmake
+@@ -294,7 +294,7 @@
+   set(ENABLE_XATTR OFF)
+   set(ENABLE_ACL OFF)
+-  if(WIN32)
++  if(WIN32 OR CMAKE_SYSTEM_NAME STREQUAL "WASI")
+     set(ENABLE_ICONV OFF)
+   else()
+     set(ENABLE_ICONV ON)

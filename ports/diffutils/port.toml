@@ -1,0 +1,27 @@
+[package]
+name = "diffutils"
+version = "3.12"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/diffutils/"
+description = "GNU file comparison utilities"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/diffutils/diffutils-3.12.tar.xz"
+sha256 = "7c8b7f9fc8609141fdea9cece85249d308624391ff61dedaf528fcb337727dfd"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls"]
+dependencies = []
+pre = ["export gl_cv_func_strcasecmp_works='guessing yes'"]
+post = []
+
+[runtime]
+commands = ["cmp","diff","diff3","sdiff"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["diff --version"]

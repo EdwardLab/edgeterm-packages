@@ -1,0 +1,31 @@
+[package]
+name = "git"
+version = "2.55.0"
+revision = "1edgeterm3"
+license = "GPL-2.0-only"
+homepage = "https://git-scm.com/"
+description = "Distributed version control system"
+depends = []
+
+[source]
+url = "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.55.0.tar.xz"
+sha256 = "457fdb04dc8728e007d4688695e6912e6f680727920f2a40bf11eacc17505357"
+
+[build]
+system = "make"
+make_args = ["prefix=/usr/local","NO_OPENSSL=YesPlease","NO_CURL=YesPlease","NO_EXPAT=YesPlease","NO_ICONV=YesPlease","NO_GETTEXT=YesPlease","NO_PTHREADS=YesPlease","NO_TCLTK=YesPlease","NO_PERL=YesPlease","NO_PYTHON=YesPlease","NO_REGEX=NeedsStartEnd","NO_RUST=YesPlease"]
+install_args = []
+dependencies = ["zlib"]
+pre = ["python3 /port/patch_git.py \"$SOURCE_DIR\""]
+post = []
+emulated_mman = true
+include_compat = true
+link_compat = true
+
+[runtime]
+commands = ["git","git-receive-pack","git-upload-archive","git-upload-pack"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["git --version","git init --quiet /tmp/git-smoke"]

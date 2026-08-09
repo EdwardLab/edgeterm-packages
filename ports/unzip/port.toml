@@ -1,0 +1,27 @@
+[package]
+name = "unzip"
+version = "6.0"
+revision = "1edgeterm1"
+license = "Info-ZIP"
+homepage = "https://infozip.sourceforge.net/"
+description = "Info-ZIP archive extractor"
+depends = []
+
+[source]
+url = "https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz"
+sha256 = "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
+
+[build]
+system = "custom"
+commands = ["make -C \"$SOURCE_DIR\" -f unix/Makefile -j\"${BUILD_JOBS:-4}\" unzips CC=\"$CC\" LD=\"$CC\" CF=\"$CFLAGS -I. -include unistd.h -include utime.h -DUNIX -DNO_LCHOWN -DNO_LCHMOD -DHAVE_DIRENT_H -DHAVE_TERMIOS_H\" LF=\"-o unzip $LDFLAGS\" SL=\"-o unzipsfx $LDFLAGS\" FL=\"-o funzip $LDFLAGS\" LF2= SL2= FL2=", "make -C \"$SOURCE_DIR\" -f unix/Makefile prefix=/build/stage/usr/local install"]
+dependencies = []
+pre = ["sed -i 's/m_time += timezone;/m_time += 0;/' \"$SOURCE_DIR/fileio.c\"", "python3 /port/patch_unzip.py \"$SOURCE_DIR\""]
+post = []
+
+[runtime]
+commands = ["unzip","funzip","unzipsfx","zipgrep","zipinfo"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["unzip -v"]

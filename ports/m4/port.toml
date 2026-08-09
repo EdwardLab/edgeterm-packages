@@ -1,0 +1,28 @@
+[package]
+name = "m4"
+version = "1.4.21"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/m4/"
+description = "GNU macro processor"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/m4/m4-1.4.21.tar.xz"
+sha256 = "f25c6ab51548a73a75558742fb031e0625d6485fe5f9155949d6486a2408ab66"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls"]
+dependencies = []
+pre = []
+post = []
+link_compat = true
+
+[runtime]
+commands = ["m4"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["m4 --version"]

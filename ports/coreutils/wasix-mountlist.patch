@@ -1,0 +1,28 @@
+--- a/lib/mountlist.c
++++ b/lib/mountlist.c
+@@ -1244,7 +1244,24 @@ read_file_system_list (bool need_fs_type)
+   }
+ #endif
+ 
+-#if MOUNTED_NOT_PORTED
++#if defined __wasi__
++  {
++    me = xmalloc (sizeof *me);
++    me->me_devname = xstrdup ("rootfs");
++    me->me_mountdir = xstrdup ("/");
++    me->me_mntroot = xstrdup ("/");
++    me->me_type = xstrdup ("edgetermfs");
++    me->me_type_malloced = 1;
++    me->me_dummy = 0;
++    me->me_remote = 0;
++    me->me_dev = (dev_t) -1;
++
++    *mtail = me;
++    mtail = &me->me_next;
++  }
++#endif
++
++#if MOUNTED_NOT_PORTED && !defined __wasi__
+ # error "Please port gnulib mountlist.c to your platform!"
+ #endif
+ 

@@ -1,0 +1,29 @@
+[package]
+name = "bat"
+version = "0.26.1"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://github.com/sharkdp/bat"
+description = "Syntax-highlighting file viewer"
+depends = []
+
+[source]
+url = "https://github.com/sharkdp/bat/archive/refs/tags/v0.26.1.tar.gz"
+sha256 = "4474de87e084953eefc1120cf905a79f72bbbf85091e30cf37c9214eafcaa9c9"
+
+[build]
+system = "cargo"
+make_args = ["--no-default-features", "--features", "application,paging"]
+install_args = ["install -m 755 target/wasm32-wasip1/release/bat.wasm /build/stage/usr/local/bin/bat"]
+dependencies = []
+pre = ["export RUSTC_BOOTSTRAP=path_abs", "python3 /port/patch_bat.py \"$SOURCE_DIR\""]
+post_fetch = ["CLIRCLE_DIR=$(find \"$CARGO_HOME/registry/src\" -type d -name 'clircle-0.6.1' -print -quit)", "cp /port/clircle_wasi.rs \"$CLIRCLE_DIR/src/clircle_wasi.rs\"", "perl -0pi -e 's/    } else \\{\\n        compile_error!\\(\"Neither cfg\\(unix\\) nor cfg\\(windows\\) was true, aborting\\.\"\\);\\n    }/    } else if #[cfg(target_os = \"wasi\")] {\\n        mod clircle_wasi;\\n        use clircle_wasi as imp;\\n    } else {\\n        compile_error!(\"Unsupported target\");\\n    }/' \"$CLIRCLE_DIR/src/lib.rs\"", "CROSSTERM_DIR=$(find \"$CARGO_HOME/registry/src\" -type d -name 'crossterm-0.27.0' -print -quit)", "cp /port/crossterm_cursor_wasi.rs \"$CROSSTERM_DIR/src/cursor/sys/wasi.rs\"", "cp /port/crossterm_terminal_wasi.rs \"$CROSSTERM_DIR/src/terminal/sys/wasi.rs\"", "cp /port/crossterm_event_wasi.rs \"$CROSSTERM_DIR/src/event/sys/wasi.rs\"", "cp /port/patch_crossterm.py /tmp/patch_crossterm.py", "python3 /tmp/patch_crossterm.py \"$CROSSTERM_DIR\"", "MINUS_DIR=$(find \"$CARGO_HOME/registry/src\" -type d -name 'minus-5.6.1' -print -quit)", "python3 /port/patch_minus.py \"$MINUS_DIR\""]
+post = []
+
+[runtime]
+commands = ["bat"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["bat --version"]

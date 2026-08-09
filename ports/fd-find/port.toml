@@ -1,0 +1,30 @@
+[package]
+name = "fd-find"
+version = "10.4.2"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://github.com/sharkdp/fd"
+description = "Friendly file search utility"
+depends = []
+
+[source]
+url = "https://github.com/sharkdp/fd/archive/refs/tags/v10.4.2.tar.gz"
+sha256 = "3a7e027af8c8e91c196ac259c703d78cd55c364706ddafbc66d02c326e57a456"
+
+[build]
+system = "cargo"
+target = "wasm32-wasip1-threads"
+locked = false
+make_args = ["--no-default-features"]
+install_args = ["install -m 755 target/wasm32-wasip1-threads/release/fd.wasm /build/stage/usr/local/bin/fd"]
+dependencies = []
+pre = ["sed -i '/^ctrlc = /d' \"$SOURCE_DIR/Cargo.toml\"", "perl -0pi -e 's/(        if config\\.ls_colors\\.is_some\\(\\) && config\\.is_printing\\(\\) \\{\\n            let quit_flag)/        #[cfg(not(target_os = \"wasi\"))]\\n$1/' \"$SOURCE_DIR/src/walk.rs\"", "sed -i 's/#\\[cfg(windows)\\]/#[cfg(not(any(unix, target_os = \"redox\")))]/g' \"$SOURCE_DIR/src/filesystem.rs\"", "sed -i '/#\\[cfg(any(unix, windows))\\]/d' \"$SOURCE_DIR/src/cli.rs\""]
+post = []
+
+[runtime]
+commands = ["fd"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["fd --version"]

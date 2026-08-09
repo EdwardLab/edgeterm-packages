@@ -1,0 +1,29 @@
+[package]
+name = "cpio"
+version = "2.15"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/cpio/"
+description = "GNU cpio archive utility"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/cpio/cpio-2.15.tar.bz2"
+sha256 = "937610b97c329a1ec9268553fb780037bcfff0dcffe9725ebc4fd9c1aa9075db"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls"]
+dependencies = []
+pre = ["export ac_cv_func_getgroups=yes", "export ac_cv_rettype_major='unsigned int'", "export ac_cv_rettype_minor='unsigned int'"]
+post = []
+link_compat = true
+include_compat = true
+
+[runtime]
+commands = ["cpio"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["cpio --version"]

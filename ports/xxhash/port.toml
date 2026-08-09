@@ -1,0 +1,29 @@
+[package]
+name = "xxhash"
+version = "0.8.3"
+revision = "1edgeterm1"
+license = "BSD-2-Clause"
+homepage = "https://xxhash.com/"
+description = "xxHash checksum utility"
+depends = []
+
+[source]
+url = "https://github.com/Cyan4973/xxHash/archive/refs/tags/v0.8.3.tar.gz"
+sha256 = "aae608dfe8213dfd05d909a57718ef82f30722c392344583d3f39050c7f29a80"
+
+[build]
+system = "make"
+make_args = ["xxhsum"]
+install_args = []
+install_commands = ["mkdir -p /build/stage/usr/local/bin", "install -m 0755 \"$SOURCE_DIR/xxhsum\" /build/stage/usr/local/bin/xxhsum", "cp /build/stage/usr/local/bin/xxhsum /build/stage/usr/local/bin/xxh32sum", "cp /build/stage/usr/local/bin/xxhsum /build/stage/usr/local/bin/xxh64sum", "cp /build/stage/usr/local/bin/xxhsum /build/stage/usr/local/bin/xxh128sum"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["xxhsum","xxh32sum","xxh64sum","xxh128sum"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["xxhsum --version","printf test | xxhsum"]

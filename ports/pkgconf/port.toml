@@ -1,0 +1,27 @@
+[package]
+name = "pkgconf"
+version = "3.0.5"
+revision = "1edgeterm1"
+license = "ISC"
+homepage = "https://gitea.treehouse.systems/ariadne/pkgconf"
+description = "Package compiler and linker metadata tool"
+depends = []
+
+[source]
+url = "https://distfiles.ariadne.space/pkgconf/pkgconf-3.0.5.tar.xz"
+sha256 = "3acd3a8a3cce65a8d620321855d92fb602e026cbe8e13ee36bdec58483b59ace"
+
+[build]
+system = "autotools"
+configure_args = ["--with-system-libdir=/usr/local/lib","--with-system-includedir=/usr/local/include"]
+dependencies = []
+pre = []
+post = ["ln -s pkgconf /build/stage/usr/local/bin/pkg-config"]
+
+[runtime]
+commands = ["pkgconf","pkg-config"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["pkgconf --version"]

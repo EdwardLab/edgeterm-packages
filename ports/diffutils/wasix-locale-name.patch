@@ -1,0 +1,11 @@
+--- a/lib/getlocalename_l-unsafe.c
++++ b/lib/getlocalename_l-unsafe.c
+@@ -656,6 +656,9 @@ getlocalename_l_unsafe (int category, locale_t locale)
+       else
+         /* It's the "C" or "POSIX" locale.  */
+         return (struct string_with_storage) { "C", STORAGE_INDEFINITE };
++#elif defined __wasi__
++      /* The browser runtime currently exposes the portable C locale.  */
++      return (struct string_with_storage) { "C", STORAGE_INDEFINITE };
+ #elif defined __ANDROID__
+       /* Android API level >= 21 */

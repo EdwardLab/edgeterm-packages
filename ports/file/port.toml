@@ -1,0 +1,27 @@
+[package]
+name = "file"
+version = "5.48"
+revision = "1edgeterm1"
+license = "BSD-2-Clause"
+homepage = "https://www.darwinsys.com/file/"
+description = "File type identification utility"
+depends = []
+
+[source]
+url = "https://astron.com/pub/file/file-5.48.tar.gz"
+sha256 = "ed14656883b23a364b4057c05595d93252da9bc473d30106519519d0da141283"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-shared","--enable-static"]
+dependencies = []
+pre = ["python3 /port/patch_file.py", "mkdir -p /build/host-file", "(cd /build/host-file && CC=cc CXX=c++ AR=ar RANLIB=ranlib CFLAGS=-O2 CXXFLAGS=-O2 LDFLAGS= \"$SOURCE_DIR/configure\" --prefix=/build/host-file-install --disable-shared --enable-static)", "make -C /build/host-file -j\"${BUILD_JOBS:-4}\"", "make -C /build/host-file install", "export PATH=/build/host-file-install/bin:$PATH"]
+post = []
+
+[runtime]
+commands = ["file"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["file --version"]

@@ -1,0 +1,38 @@
+[package]
+name = "p7zip"
+version = "17.06"
+revision = "1edgeterm1"
+license = "LGPL-2.1-or-later"
+homepage = "https://github.com/p7zip-project/p7zip"
+description = "7-Zip archive utilities"
+depends = []
+
+[source]
+url = "https://github.com/p7zip-project/p7zip/archive/refs/tags/v17.06.tar.gz"
+sha256 = "c35640020e8f044b425d9c18e1808ff9206dc7caf77c9720f57eb0849d714cd1"
+
+[build]
+system = "custom"
+commands = [
+  "cp \"$SOURCE_DIR/makefile.linux_any_cpu\" \"$SOURCE_DIR/makefile.machine\"",
+  "sed -i 's/^CFLAGS=-c/override CFLAGS=-c/; s/^CXXFLAGS=-c/override CXXFLAGS=-c/' \"$SOURCE_DIR/makefile.glb\"",
+  "find \"$SOURCE_DIR/CPP/7zip\" -name 'makefile.list' -type f -exec sed -i 's/-DZSTD_MULTITHREAD//g' {} +",
+  "make -C \"$SOURCE_DIR\" -j\"${BUILD_JOBS:-4}\" CC=\"$CC\" CXX=\"$CXX\" OPTFLAGS=-O2 TARGET_FLAGS=\"-ffunction-sections -fdata-sections -D_7ZIP_ST -DFL2_SINGLETHREAD -I../../../../C/zstd\" LDFLAGS=\"$LDFLAGS -Wl,--gc-sections\" LOCAL_LIBS= LOCAL_LIBS_DLL= 7za",
+  "mkdir -p /build/stage/usr/local/bin",
+  "cp \"$SOURCE_DIR/bin/7za\" /build/stage/usr/local/bin/7za",
+  "cp \"$SOURCE_DIR/bin/7za\" /build/stage/usr/local/bin/7z",
+  "cp \"$SOURCE_DIR/bin/7za\" /build/stage/usr/local/bin/7zr",
+]
+dependencies = []
+pre = []
+post = []
+link_compat = true
+threads = false
+
+[runtime]
+commands = ["7z","7za","7zr"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["7z i"]

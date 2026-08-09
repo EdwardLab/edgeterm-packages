@@ -1,0 +1,30 @@
+[package]
+name = "coreutils"
+version = "9.11"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/coreutils/"
+description = "GNU core utilities"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/coreutils/coreutils-9.11.tar.xz"
+sha256 = "394024eda0a5955217ceda9cd1201e65dc8fa3aa29c2951135a49521d57c3cc3"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls","--enable-no-install-program=groups,hostname,kill,uptime"]
+dependencies = []
+pre = ["export ac_cv_func_getgroups=yes ac_cv_func_getgroups_works=yes gl_cv_func_getgroups_works=yes fu_cv_sys_stat_statvfs=yes fu_cv_sys_stat_statvfs64=no ac_cv_member_struct_statvfs_f_namemax=yes", "sed -i 's/opendirat (/gl_opendirat (/g; s/opendirat(/gl_opendirat(/g' \"$SOURCE_DIR/lib/opendirat.c\" \"$SOURCE_DIR/lib/opendirat.h\"", "sed -i 's/dirp = opendirat (dir_fd, buf, 0, pnew_fd);/dirp = gl_opendirat (dir_fd, buf, 0, pnew_fd);/' \"$SOURCE_DIR/lib/backupfile.c\"", "sed -i '/^#define fts_opendir/,/Pdir_fd)/s/opendirat(/gl_opendirat(/' \"$SOURCE_DIR/lib/fts.c\"", "find \"$SOURCE_DIR\" -name getlocalename_l-unsafe.c -type f -exec perl -0pi -e 's/#elif defined __ANDROID__/#elif defined __wasi__\\n      return (struct string_with_storage) { \"C\", STORAGE_INDEFINITE };\\n#elif defined __ANDROID__/g' {} +", "sed -i '/^mbsstr (/i #undef mbsstr' \"$SOURCE_DIR/lib/mbsstr.c\"", "sed -i '/^# undef mknod/a int mknod (char const *, mode_t, dev_t);' \"$SOURCE_DIR/lib/mknod.c\"", "python3 /port/patch_coreutils.py \"$SOURCE_DIR\""]
+post = []
+include_compat = true
+link_compat = true
+threads = true
+
+[runtime]
+commands = ["b2sum","base32","base64","basenc","basename","cat","chgrp","chmod","chown","chroot","cksum","comm","cp","csplit","cut","date","dd","dir","dircolors","dirname","du","echo","env","expand","expr","factor","false","fmt","fold","head","hostid","id","install","join","link","ln","logname","ls","md5sum","mkdir","mkfifo","mknod","mktemp","mv","nl","nohup","nproc","numfmt","od","paste","pathchk","pr","printenv","printf","ptx","pwd","readlink","realpath","rm","rmdir","seq","sha1sum","sha224sum","sha256sum","sha384sum","sha512sum","shred","shuf","sleep","sort","split","stat","stty","sum","sync","tac","tail","tee","test","timeout","touch","tr","true","truncate","tsort","tty","uname","unexpand","uniq","unlink","vdir","wc","whoami","yes"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["ls --version","printf test | sha256sum"]

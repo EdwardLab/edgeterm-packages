@@ -1,0 +1,32 @@
+[package]
+name = "openssh-client"
+version = "10.4p1"
+revision = "1edgeterm1"
+license = "BSD-2-Clause"
+license_file = "LICENCE"
+homepage = "https://www.openssh.com/"
+description = "OpenSSH client programs"
+depends = ["openssl"]
+
+[source]
+url = "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.4p1.tar.gz"
+sha256 = "ef6026dd2aea8d56059638d5d3262902c892ceba9f88395835e0d06d3fb63238"
+
+[build]
+system = "autotools"
+configure_args = ["--without-pam","--without-zlib","--with-ssl-dir=/build/prefix"]
+dependencies = ["openssl"]
+pre = ["python3 /port/patch_openssh.py \"$SOURCE_DIR\""]
+post = []
+emulated_mman = true
+include_compat = true
+link_compat = true
+install_args = ["STRIP_OPT="]
+
+[runtime]
+commands = ["ssh","scp","sftp","ssh-add","ssh-agent","ssh-keygen","ssh-keyscan"]
+mode = "network-preview"
+capability = "socket-preview"
+
+[tests]
+smoke = ["ssh -V","ssh-keygen -t ed25519 -N '' -f /tmp/test-key"]
