@@ -75,3 +75,28 @@ The production signing key fingerprint is
 `6165 B5AE 16F6 2EE3 D318 3790 5CEC F54D FEE8 CFBD`. Its private material is
 kept outside both source repositories. Release jobs must set `GNUPGHOME` and
 `EDGETERM_APT_SIGNING_KEY` explicitly.
+
+## Reproducing the release toolchain
+
+Package builds currently target a Linux ARM64 container (including Docker on
+Apple Silicon). Python 3.14 is supported; Python 3.11-3.13 also need the dependencies
+in `requirements.txt`. The driver uses the checked-in POSIX source snapshot by
+default, so a sibling unpublished checkout is no longer required.
+
+```sh
+python3 -m pip install -r requirements.txt
+python3 scripts/prepare-toolchain.py
+docker build --platform linux/arm64 -t edgeterm-packages:2026-08-05 -f pipeline/Dockerfile .
+python3 scripts/ports.py build tree
+python3 scripts/ports.py package tree
+```
+
+The preparation command downloads and verifies WASI SDK 33, Binaryen 131, and
+the WASIX sysroot. Rust ports fetch their separately pinned WASIX Rust toolchain
+when required. The published binaries have artifact-bound acceptance records;
+a fresh clone does not inherit local evidence and must rerun acceptance before
+publishing a new stable artifact.
+
+Signed metadata expires after 14 days. A publisher must regenerate and sign the
+repository before `Valid-Until`; clients deliberately reject expired metadata.
+The signing key remains on the publisher machine and is not stored in CI.
