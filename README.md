@@ -97,6 +97,6 @@ when required. The published binaries have artifact-bound acceptance records;
 a fresh clone does not inherit local evidence and must rerun acceptance before
 publishing a new stable artifact.
 
-Signed metadata expires after 14 days. A publisher must regenerate and sign the
+Signed metadata expires after 180 days. A publisher must regenerate and sign the
 repository before `Valid-Until`; clients deliberately reject expired metadata.
 The signing key remains on the publisher machine and is not stored in CI.

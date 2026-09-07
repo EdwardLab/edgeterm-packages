@@ -151,7 +151,7 @@ def build_repository(channel: str, *, local_flat: bool = False) -> Path:
         f"Architectures: {ARCHITECTURE}",
         f"Components: {COMPONENT}",
         "Description: Optional third-party packages for EdgeTerm",
-        f"Valid-Until: {(dt.datetime.now(dt.UTC) + dt.timedelta(days=14)).strftime('%a, %d %b %Y %H:%M:%S +0000')}",
+        f"Valid-Until: {(dt.datetime.now(dt.UTC) + dt.timedelta(days=180)).strftime('%a, %d %b %Y %H:%M:%S +0000')}",
         "SHA256:",
     ]
     for path in metadata:
@@ -179,7 +179,7 @@ def build_repository(channel: str, *, local_flat: bool = False) -> Path:
             "Label: EdgeTerm Packages",
             f"Suite: {suite}",
             f"Date: {dt.datetime.now(dt.UTC).strftime('%a, %d %b %Y %H:%M:%S +0000')}",
-            f"Valid-Until: {(dt.datetime.now(dt.UTC) + dt.timedelta(days=14)).strftime('%a, %d %b %Y %H:%M:%S +0000')}",
+            f"Valid-Until: {(dt.datetime.now(dt.UTC) + dt.timedelta(days=180)).strftime('%a, %d %b %Y %H:%M:%S +0000')}",
             "Architectures: wasm32-wasix all",
             "SHA256:",
             f" {digest(flat_index, 'sha256')} {flat_index.stat().st_size} Packages",
