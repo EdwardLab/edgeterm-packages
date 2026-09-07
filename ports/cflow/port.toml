@@ -1,0 +1,32 @@
+[package]
+name = "cflow"
+version = "1.8"
+revision = "1edgeterm2"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/cflow/"
+description = "C source call graph generator"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/cflow/cflow-1.8.tar.gz"
+sha256 = "a968bc4180ade2176ffb8dac80a329ba4faa2a3c15a3df795dcbe2a729b5e7a0"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-shared", "--disable-nls"]
+make_args = []
+install_args = []
+dependencies = []
+pre = []
+post = ["install -d /build/stage/usr/local/share/cflow/site-init /build/stage/usr/local/share/cflow/1.8", "cp /build/stage/usr/local/share/cflow/1.8/c11.cfo /build/stage/usr/local/share/cflow/site-init/c11.cfo", "cp /build/stage/usr/local/share/cflow/1.8/gcc.cfo /build/stage/usr/local/share/cflow/site-init/gcc.cfo", ": > /build/stage/usr/local/share/cflow/site-init/default.cfo", ": > /build/stage/usr/local/share/cflow/1.8/default.cfo"]
+include_compat = true
+link_compat = true
+pristine_source = true
+
+[runtime]
+commands = ["cflow"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["cflow --version"]

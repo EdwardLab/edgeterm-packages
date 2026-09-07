@@ -1,0 +1,29 @@
+[package]
+name = "ed"
+version = "1.22.5"
+revision = "1edgeterm1"
+license = "GPL-2.0-or-later"
+homepage = "https://www.gnu.org/software/ed/"
+description = "Line-oriented text editor"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/ed/ed-1.22.5.tar.lz"
+sha256 = "56e107ddc2f29dad6690376c15bf9751509e1ee3b8241710e44edbe5c3a158cc"
+
+[build]
+system = "custom"
+pristine_source = true
+commands = ["cd /build/work && \"$SOURCE_DIR/configure\" --host=wasm32-wasi --prefix=/usr/local CC=\"$CC\" CFLAGS=\"$CFLAGS\" LDFLAGS=\"$LDFLAGS\"", "make -C /build/work -j\"${BUILD_JOBS:-4}\"", "make -C /build/work DESTDIR=/build/stage install"]
+dependencies = []
+pre = []
+post = []
+asyncify = true
+
+[runtime]
+commands = ["ed", "red"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["ed --version"]

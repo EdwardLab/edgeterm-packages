@@ -13,6 +13,7 @@ sha256 = "22cf32e84e3eb508d97a9e991c2c3cc006b9dcf4afed201d96311c5c57d08fcf"
 
 [build]
 system = "make"
+pristine_source = true
 make_args = []
 install_args = []
 install_commands = ["mkdir -p /build/stage/usr/local/bin", "install -m 0755 \"$SOURCE_DIR/tree\" /build/stage/usr/local/bin/tree"]

@@ -1,0 +1,12 @@
+{
+  "name": "php",
+  "version": "8.4.23",
+  "runtime": "emscripten",
+  "command": "php",
+  "launcher": "php_8_4.js",
+  "wasm": "php_8_4.wasm",
+  "thisProgram": "php",
+  "extensions": {
+    "intl": "/usr/local/share/edgeterm/runtime-packages/php/intl.so"
+  }
+}

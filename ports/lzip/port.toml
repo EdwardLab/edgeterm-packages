@@ -1,0 +1,34 @@
+[package]
+name = "lzip"
+version = "1.25"
+revision = "1edgeterm1"
+license = "GPL-2.0-or-later"
+homepage = "https://www.nongnu.org/lzip/"
+description = "Lossless data compressor based on the LZMA algorithm"
+depends = []
+
+[source]
+url = "https://download.savannah.nongnu.org/releases/lzip/lzip-1.25.tar.gz"
+sha256 = "09418a6d8fb83f5113f5bd856e09703df5d37bae0308c668d0f346e3d3f0a56f"
+
+[build]
+system = "custom"
+pristine_source = true
+commands = [
+  'mkdir -p /build/work/lzip',
+  'cd /build/work/lzip && "$SOURCE_DIR/configure" --srcdir="$SOURCE_DIR" --prefix=/usr/local CXX="$CXX" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS"',
+  'make -C /build/work/lzip -j"${BUILD_JOBS:-4}"',
+  'make -C /build/work/lzip DESTDIR=/build/stage install',
+]
+dependencies = []
+pre = []
+post = []
+link_compat = true
+
+[runtime]
+commands = ["lzip"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["lzip --version"]

@@ -1,7 +1,7 @@
 [package]
 name = "xz-utils"
 version = "5.8.3"
-revision = "1edgeterm1"
+revision = "1edgeterm2"
 license = "0BSD"
 homepage = "https://tukaani.org/xz/"
 description = "XZ compression utilities"
@@ -13,9 +13,10 @@ sha256 = "3d3a1b973af218114f4f889bbaa2f4c037deaae0c8e815eec381c3d546b974a0"
 
 [build]
 system = "autotools"
-configure_args = ["SKIP_WERROR_CHECK=yes","--disable-shared","--enable-static","--disable-nls"]
+pristine_source = true
+configure_args = ["SKIP_WERROR_CHECK=yes","--disable-shared","--enable-static","--disable-nls","--enable-threads=no"]
 dependencies = []
-pre = []
+pre = ["export CPPFLAGS=\"$CPPFLAGS -D__EMSCRIPTEN__\""]
 post = []
 
 [runtime]

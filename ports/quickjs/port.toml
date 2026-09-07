@@ -1,0 +1,31 @@
+[package]
+name = "quickjs"
+version = "2026-06-04"
+revision = "1edgeterm3"
+license = "MIT"
+homepage = "https://bellard.org/quickjs/"
+description = "QuickJS JavaScript runtime"
+depends = []
+
+[source]
+url = "https://bellard.org/quickjs/quickjs-2026-06-04.tar.xz"
+sha256 = "b376e839b322978313d929fd20663b11ba58b75df5a46c126dd19ea2fa70ad2a"
+
+[build]
+system = "custom"
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
+commands = ["env -u CPPFLAGS -u CFLAGS -u CXXFLAGS -u LDFLAGS make -C \"$SOURCE_DIR\" -j\"${BUILD_JOBS:-4}\" host-qjsc CROSS_PREFIX=wasm32-wasi-", "CFLAGS=\"$CFLAGS -D__EMSCRIPTEN__\" LDFLAGS=\"$LDFLAGS -Wl,-z,stack-size=1048576\" make -C \"$SOURCE_DIR\" -j\"${BUILD_JOBS:-4}\" qjs qjsc CROSS_PREFIX=wasm32-wasi- CC=\"$CC\" AR=\"$AR\" LIBS=\"-lm\"", "install -d /build/stage/usr/local/bin", "install -m 755 \"$SOURCE_DIR/qjs\" \"$SOURCE_DIR/qjsc\" /build/stage/usr/local/bin/"]
+dependencies = []
+pre = []
+post = []
+threads = true
+
+[runtime]
+commands = ["qjs", "qjsc"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["qjs --help", "qjs -e 'console.log(1 + 1)'"]

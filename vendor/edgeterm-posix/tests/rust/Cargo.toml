@@ -1,0 +1,8 @@
+[package]
+name = "edgeterm-posix-target-test"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "edgeterm-posix-target-test"
+path = "posix_target.rs"

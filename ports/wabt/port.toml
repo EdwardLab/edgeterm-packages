@@ -1,0 +1,29 @@
+[package]
+name = "wabt"
+version = "1.0.41"
+revision = "1edgeterm1"
+license = "Apache-2.0"
+homepage = "https://github.com/WebAssembly/wabt"
+description = "WebAssembly Binary Toolkit"
+depends = []
+license_file = "port:LICENSE"
+
+[source]
+url = "https://github.com/WebAssembly/wabt/releases/download/1.0.41/wabt-1.0.41-wasi.tar.gz"
+sha256 = "b1f09bde4a7f407d8d2b43b6076004dedf64780cbfcf7cce19207a11ade06f9c"
+
+[build]
+system = "custom"
+commands = ["install -d /build/stage/usr/local/bin", "install -m 755 \"$SOURCE_DIR\"/bin/* /build/stage/usr/local/bin/"]
+dependencies = []
+pre = []
+post = []
+pristine_source = true
+
+[runtime]
+commands = ["spectest-interp", "wat-desugar", "wast2json", "wasm-decompile", "wasm-interp", "wasm-objdump", "wasm-stats", "wasm-strip", "wasm-validate", "wasm2c", "wasm2wat", "wat2wasm"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["wat2wasm --version", "wasm-validate --version"]

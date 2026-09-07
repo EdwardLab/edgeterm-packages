@@ -1,0 +1,11 @@
+[package]
+name = "uzers"
+version = "0.12.2"
+edition = "2021"
+license = "MIT"
+
+[features]
+default = ["cache"]
+cache = []
+logging = []
+mock = []

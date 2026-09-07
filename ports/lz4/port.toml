@@ -1,7 +1,7 @@
 [package]
 name = "lz4"
 version = "1.10.0"
-revision = "1edgeterm1"
+revision = "1edgeterm2"
 license = "BSD-2-Clause"
 homepage = "https://lz4.org/"
 description = "LZ4 compression utility"
@@ -13,12 +13,13 @@ sha256 = "537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b"
 
 [build]
 system = "custom"
+pristine_source = true
 commands = ["make -C \"$SOURCE_DIR/programs\" -j\"${BUILD_JOBS:-4}\" CC=\"$CC\" AR=\"$AR\" RANLIB=\"$RANLIB\" STRIP=\"$STRIP\" CFLAGS=\"$CFLAGS\" LDFLAGS=\"$LDFLAGS\" lz4-nomt", "mkdir -p /build/stage/usr/local/bin", "install -m 0755 \"$SOURCE_DIR/programs/lz4-nomt\" /build/stage/usr/local/bin/lz4", "cp /build/stage/usr/local/bin/lz4 /build/stage/usr/local/bin/unlz4", "cp /build/stage/usr/local/bin/lz4 /build/stage/usr/local/bin/lz4cat"]
 make_args = []
 install_args = []
 install_commands = []
 dependencies = []
-pre = ["python3 /port/patch_lz4.py \"$SOURCE_DIR\"", "export LDFLAGS=\"$LDFLAGS -Wl,-z,stack-size=1048576 -Wl,--initial-memory=4194304\""]
+pre = ["export LDFLAGS=\"$LDFLAGS -Wl,-z,stack-size=1048576 -Wl,--initial-memory=4194304\""]
 post = []
 
 [runtime]

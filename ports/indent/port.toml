@@ -1,0 +1,32 @@
+[package]
+name = "indent"
+version = "2.2.13"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/indent/"
+description = "C source code formatter"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/indent/indent-2.2.13.tar.xz"
+sha256 = "1b81ba4e9a006ca8e6eb5cbbe4cf4f75dfc1fc9301b459aa0d40393e85590a0b"
+
+[build]
+system = "autotools"
+pristine_source = true
+configure_args = ["--disable-shared", "--disable-nls"]
+make_args = []
+install_args = []
+build_commands = ['make -C src -j"${BUILD_JOBS:-4}" CFLAGS="$EDGETERM_COMPILE_CFLAGS"']
+install_commands = ["install -d /build/stage/usr/local/bin", "install -m 755 /build/work/src/indent /build/stage/usr/local/bin/indent"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["indent"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["indent --version 2>&1 | grep -q 'GNU indent'"]

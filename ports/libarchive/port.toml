@@ -1,0 +1,32 @@
+[package]
+name = "libarchive"
+version = "3.8.1"
+revision = "1edgeterm1"
+license = "BSD-2-Clause"
+homepage = "https://www.libarchive.org/"
+description = "Multi-format archive tools"
+depends = []
+
+[source]
+url = "https://github.com/libarchive/libarchive/releases/download/v3.8.1/libarchive-3.8.1.tar.xz"
+sha256 = "19f917d42d530f98815ac824d90c7eaf648e9d9a50e4f309c812457ffa5496b5"
+
+[build]
+system = "cmake"
+pristine_source = true
+configure_args = ["-DENABLE_SHARED=OFF", "-DENABLE_TEST=OFF", "-DENABLE_OPENSSL=OFF", "-DENABLE_LIBXML2=OFF", "-DENABLE_EXPAT=OFF", "-DENABLE_LZMA=OFF", "-DENABLE_ZSTD=OFF", "-DENABLE_LZ4=OFF", "-DENABLE_BZip2=OFF", "-DENABLE_ZLIB=OFF", "-DENABLE_ACL=OFF", "-DENABLE_XATTR=OFF", "-DHAVE_FCHDIR=1", "-DHAVE_FCNTL=1", "-DHAVE_STATVFS=0", "-DHAVE_FSTATVFS=0"]
+make_args = []
+install_args = []
+dependencies = []
+pre = []
+post = []
+include_compat = true
+link_compat = true
+
+[runtime]
+commands = ["bsdcat", "bsdcpio", "bsdtar"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["bsdtar --version"]

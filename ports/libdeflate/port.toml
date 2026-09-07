@@ -1,0 +1,31 @@
+[package]
+name = "libdeflate"
+version = "1.24"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://github.com/ebiggers/libdeflate"
+description = "Fast DEFLATE compression and decompression tools"
+depends = []
+
+[source]
+url = "https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.24.tar.gz"
+sha256 = "ad8d3723d0065c4723ab738be9723f2ff1cb0f1571e8bfcf0301ff9661f475e8"
+
+[build]
+system = "cmake"
+pristine_source = true
+configure_args = ["-DLIBDEFLATE_BUILD_SHARED_LIB=OFF", "-DLIBDEFLATE_BUILD_STATIC_LIB=ON", "-DLIBDEFLATE_BUILD_GZIP=ON", "-DLIBDEFLATE_BUILD_TESTS=OFF"]
+make_args = []
+install_args = []
+dependencies = []
+pre = []
+post = []
+emulated_mman = true
+
+[runtime]
+commands = ["libdeflate-gzip", "libdeflate-gunzip"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["libdeflate-gzip -V"]

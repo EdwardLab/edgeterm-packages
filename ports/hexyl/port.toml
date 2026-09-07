@@ -1,0 +1,29 @@
+[package]
+name = "hexyl"
+version = "0.17.0"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://github.com/sharkdp/hexyl"
+description = "Hex viewer for the terminal"
+depends = []
+
+[source]
+url = "https://github.com/sharkdp/hexyl/archive/refs/tags/v0.17.0.tar.gz"
+sha256 = "72fa17397ad187eec6b295d02c7caabbb209a6e0d5706187b8a599bd5df8615e"
+
+[build]
+system = "cargo"
+pristine_source = true
+locked = false
+install_args = ["install -m 755 target/wasm32-wasip1/release/hexyl.wasm /build/stage/usr/local/bin/hexyl"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["hexyl"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["hexyl --version"]

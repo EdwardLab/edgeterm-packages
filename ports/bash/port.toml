@@ -1,11 +1,11 @@
 [package]
 name = "bash"
-version = "5.3.15"
-revision = "1edgeterm2"
+version = "5.3.0"
+revision = "1edgeterm1"
 license = "GPL-3.0-or-later"
 homepage = "https://www.gnu.org/software/bash/"
 description = "GNU Bourne Again Shell"
-depends = []
+depends = ["ncurses"]
 
 [source]
 url = "https://ftp.gnu.org/gnu/bash/bash-5.3.tar.gz"
@@ -13,14 +13,19 @@ sha256 = "0d5cd86965f869a26cf64f4b71be7b96f90a3ba8b3d74e27e8e9d9d5550f31ba"
 
 [build]
 system = "autotools"
+pristine_source = true
 asyncify = true
 configure_args = ["--without-bash-malloc","--disable-nls"]
-dependencies = []
-pre = ["export ac_cv_func_memfd_create=no ac_cv_func_shm_open=no ac_cv_func_shm_mkstemp=no ac_cv_func_getcwd=yes ac_cv_func_setenv=yes ac_cv_func_putenv=yes bash_cv_termcap_lib=gnutermcap CFLAGS=\"$CFLAGS -DNO_MAIN_ENV_ARG\"", "sed -i 's/ bashbug $(SUPPORT_DIR)\\/man2html$(EXEEXT)/ bashbug/' \"$SOURCE_DIR/Makefile.in\"", "python3 /port/patch_bash.py \"$SOURCE_DIR\""]
+dependencies = ["ncurses"]
+pre = ["export ac_cv_func_memfd_create=no ac_cv_func_shm_open=no ac_cv_func_shm_mkstemp=no ac_cv_func_getcwd=yes ac_cv_func_setenv=yes ac_cv_func_putenv=yes bash_cv_termcap_lib=libncursesw CPPFLAGS=\"$CPPFLAGS -I/build/prefix/include/ncursesw\""]
+build_commands = ["make -j\"${BUILD_JOBS:-4}\" MAKEINFO=true bash"]
+install_commands = ["install -d /build/stage/usr/local/bin", "install -m 755 /build/work/bash /build/stage/usr/local/bin/bash"]
 post = []
 include_compat = true
 link_compat = true
 emulated_mman = true
+main_with_environment = true
+config_undefines = ["CAN_REDEFINE_GETENV"]
 
 [runtime]
 commands = ["bash"]

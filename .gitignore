@@ -13,3 +13,6 @@ __pycache__/
 *.log
 *.swp
 .DS_Store
+
+/.tmp-browser/
+target/

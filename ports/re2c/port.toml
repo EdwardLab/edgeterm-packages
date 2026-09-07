@@ -1,0 +1,34 @@
+[package]
+name = "re2c"
+version = "4.3"
+revision = "1edgeterm1"
+license = "Public-Domain"
+homepage = "https://re2c.org/"
+description = "Lexer generator for C and C++"
+depends = []
+
+[source]
+url = "https://github.com/skvadrik/re2c/releases/download/4.3/re2c-4.3.tar.xz"
+sha256 = "51e88d6d6b6ab03eb7970276aca7e0db4f8e29c958b84b561d2fdcb8351c7150"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-shared", "--disable-docs"]
+make_args = []
+install_args = []
+build_commands = ['make -j"${BUILD_JOBS:-4}" re2c CXXFLAGS="$CXXFLAGS"']
+install_commands = ["install -d /build/stage/usr/local/bin", "install -m 755 /build/work/re2c /build/stage/usr/local/bin/re2c"]
+dependencies = []
+pre = []
+post_configure = ["cp -R \"$SOURCE_DIR/bootstrap/src/.\" /build/work/src/"]
+post = []
+link_compat = true
+pristine_source = true
+
+[runtime]
+commands = ["re2c"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["re2c --version"]

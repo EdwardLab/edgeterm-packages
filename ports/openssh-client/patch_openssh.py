@@ -91,6 +91,34 @@ content = content.replace("    select(xzmb,xzm1b,xzm,xzm1,b);", "    curve_selec
 content = content.replace("    select(xzm,xzm1,xznb,xzn1b,b);", "    curve_select(xzm,xzm1,xznb,xzn1b,b);")
 curve.write_text(content)
 
+fallback_passwd = """#if defined(__wasi__)
+\tif (pw == NULL) {
+\t\tstatic struct passwd edgeterm_pw = {
+\t\t\t.pw_name = \"user\",
+\t\t\t.pw_passwd = \"x\",
+\t\t\t.pw_uid = 1000,
+\t\t\t.pw_gid = 1000,
+\t\t\t.pw_gecos = \"EdgeTerm User\",
+\t\t\t.pw_dir = \"/home/user\",
+\t\t\t.pw_shell = \"/bin/ash\",
+\t\t};
+\t\tpw = &edgeterm_pw;
+\t}
+#endif
+"""
+
+for relative_path, marker in (
+    ("ssh-keygen.c", "\tpw = getpwuid(getuid());\n\tif (!pw)\n"),
+    ("ssh.c", "\tpw = getpwuid(getuid());\n\tif (!pw) {\n"),
+):
+    path = root / relative_path
+    content = path.read_text()
+    replacement = marker.split("\n", 1)[0] + "\n" + fallback_passwd + marker.split("\n", 1)[1]
+    if fallback_passwd not in content:
+        if marker not in content:
+            raise RuntimeError(f"OpenSSH passwd lookup was not found in {relative_path}")
+        path.write_text(content.replace(marker, replacement, 1))
+
 makefile = root / "Makefile.in"
 lines = makefile.read_text().splitlines()
 client_targets = (

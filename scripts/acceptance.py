@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 STATE = ROOT / "acceptance"
 CHECKS = (
+    "pristine_source",
     "reproducible_build",
     "source_checksum",
     "license",
@@ -59,7 +60,14 @@ def write_state(data: dict) -> None:
 
 def is_stable(data: dict) -> bool:
     checks = data.get("checks", {})
-    return all(checks.get(name, {}).get("passed") is True for name in CHECKS)
+    artifact_sha256 = data.get("artifact_sha256")
+    if not artifact_sha256:
+        return False
+    return all(
+        checks.get(name, {}).get("passed") is True
+        and checks.get(name, {}).get("artifact_sha256") == artifact_sha256
+        for name in CHECKS
+    )
 
 
 def main() -> int:
@@ -70,17 +78,34 @@ def main() -> int:
     record.add_argument("version")
     record.add_argument("check", choices=CHECKS)
     record.add_argument("evidence", type=Path)
+    record.add_argument("--artifact-sha256", required=True)
+    bind = subparsers.add_parser("bind-artifact")
+    bind.add_argument("package")
+    bind.add_argument("version")
+    bind.add_argument("artifact_sha256")
     status = subparsers.add_parser("status")
     status.add_argument("package", nargs="?")
     args = parser.parse_args()
+    if args.action == "bind-artifact":
+        data = read_state(args.package, args.version)
+        if data.get("artifact_sha256") != args.artifact_sha256:
+            data["checks"] = {}
+        data["artifact_sha256"] = args.artifact_sha256
+        data["stable"] = is_stable(data)
+        write_state(data)
+        print("bound")
+        return 0
     if args.action == "record":
         if not args.evidence.is_file() or not args.evidence.stat().st_size:
             raise SystemExit("Acceptance evidence must be a non-empty file.")
         data = read_state(args.package, args.version)
+        if data.get("artifact_sha256") != args.artifact_sha256:
+            raise SystemExit("Acceptance evidence does not match the bound package artifact.")
         data["checks"][args.check] = {
             "passed": True,
             "evidence": str(args.evidence.resolve()),
             "sha256": evidence_digest(args.evidence),
+            "artifact_sha256": args.artifact_sha256,
         }
         data["stable"] = is_stable(data)
         write_state(data)

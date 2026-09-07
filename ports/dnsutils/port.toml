@@ -1,7 +1,7 @@
 [package]
 name = "dnsutils"
 version = "9.20.26"
-revision = "1edgeterm1"
+revision = "1edgeterm2"
 license = "MPL-2.0"
 homepage = "https://www.isc.org/bind/"
 description = "DNS query utilities"
@@ -13,11 +13,14 @@ sha256 = "55248def0f870c4c46b3de72978ea972615131516663188a4564dca1d20bf350"
 
 [build]
 system = "autotools"
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
 configure_args = ["--disable-shared","--enable-static","--without-python","--without-libxml2","--without-json-c","--disable-doh","--with-openssl=/build/prefix"]
 dependencies = ["liburcu", "libuv", "openssl", "zlib"]
 pre = ["python3 /port/patch_dnsutils.py \"$SOURCE_DIR\"", "find /build/prefix -name '*.la' -delete", "sed -i '/Static linking is not supported as it disables dlopen()/s/.*as_fn_error.*/  :/' \"$SOURCE_DIR/configure\""]
 post = []
-build_commands = ["/usr/bin/perl \"$SOURCE_DIR/util/bindkeys.pl\" \"$SOURCE_DIR/bind.keys\" > /build/work/bind.keys.h", "make -j\"${BUILD_JOBS:-4}\" -C lib/isc CFLAGS=\"$EDGETERM_COMPILE_CFLAGS\"", "make -j\"${BUILD_JOBS:-4}\" -C lib/dns CFLAGS=\"$EDGETERM_COMPILE_CFLAGS\"", "make -j\"${BUILD_JOBS:-4}\" -C lib/isccc CFLAGS=\"$EDGETERM_COMPILE_CFLAGS\"", "make -j\"${BUILD_JOBS:-4}\" -C lib/ns CFLAGS=\"$EDGETERM_COMPILE_CFLAGS\"", "make -j\"${BUILD_JOBS:-4}\" -C lib/isccfg CFLAGS=\"$EDGETERM_COMPILE_CFLAGS\"", "make -j\"${BUILD_JOBS:-4}\" -C bin/dig CFLAGS=\"$EDGETERM_COMPILE_CFLAGS\"", "make -j\"${BUILD_JOBS:-4}\" -C bin/delv CFLAGS=\"$EDGETERM_COMPILE_CFLAGS\"", "make -j\"${BUILD_JOBS:-4}\" -C bin/nsupdate CFLAGS=\"$EDGETERM_COMPILE_CFLAGS\""]
+build_commands = ["/usr/bin/perl \"$SOURCE_DIR/util/bindkeys.pl\" \"$SOURCE_DIR/bind.keys\" > \"$BUILD_DIR/bind.keys.h\"", "make -j\"${BUILD_JOBS:-4}\" -C lib/isc", "make -j\"${BUILD_JOBS:-4}\" -C lib/dns", "make -j\"${BUILD_JOBS:-4}\" -C lib/isccc", "make -j\"${BUILD_JOBS:-4}\" -C lib/ns", "make -j\"${BUILD_JOBS:-4}\" -C lib/isccfg", "make -j\"${BUILD_JOBS:-4}\" -C bin/dig", "make -j\"${BUILD_JOBS:-4}\" -C bin/delv", "make -j\"${BUILD_JOBS:-4}\" -C bin/nsupdate"]
 install_commands = ["install -Dm755 bin/dig/dig /build/stage/usr/local/bin/dig", "install -Dm755 bin/dig/host /build/stage/usr/local/bin/host", "install -Dm755 bin/dig/nslookup /build/stage/usr/local/bin/nslookup", "install -Dm755 bin/delv/delv /build/stage/usr/local/bin/delv", "install -Dm755 bin/nsupdate/nsupdate /build/stage/usr/local/bin/nsupdate"]
 include_compat = true
 link_compat = true

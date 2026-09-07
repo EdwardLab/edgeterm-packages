@@ -13,6 +13,9 @@ sha256 = "4474de87e084953eefc1120cf905a79f72bbbf85091e30cf37c9214eafcaa9c9"
 
 [build]
 system = "cargo"
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
 make_args = ["--no-default-features", "--features", "application,paging"]
 install_args = ["install -m 755 target/wasm32-wasip1/release/bat.wasm /build/stage/usr/local/bin/bat"]
 dependencies = []

@@ -1,0 +1,28 @@
+[package]
+name = "actionlint"
+version = "1.7.12"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://rhysd.github.io/actionlint/"
+description = "GitHub Actions workflow linter"
+depends = []
+
+[source]
+url = "https://github.com/rhysd/actionlint/archive/refs/tags/v1.7.12.tar.gz"
+sha256 = "454800bd4f854592bcfe79b161f71d56e35940eb7016e48a26dd356adc9d400a"
+
+[build]
+system = "go"
+pristine_source = true
+make_args = ["-o", "/build/stage/usr/local/bin/actionlint", "./cmd/actionlint"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["actionlint"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["actionlint --version"]

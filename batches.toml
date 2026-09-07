@@ -14,3 +14,21 @@ network = [
   "curl", "wget", "openssh-client", "rsync", "dnsutils",
   "netcat-openbsd", "openssl",
 ]
+languages = [
+  "quickjs", "fennel", "wabt", "tcl", "wasm3",
+  "mujs", "chibi-scheme", "squirrel", "php",
+]
+terminal = [
+  "ncurses", "nano", "less", "ed", "dos2unix", "pv", "flex", "ncdu",
+  "cmark",
+]
+modern = [
+  "hexyl", "mawk", "sd", "choose", "grex", "bison", "byacc",
+  "re2c", "gperf", "indent", "universal-ctags", "pcre2", "picoc",
+  "zoxide", "hexedit", "libdeflate", "dialog", "wasm-tools",
+  "ncompress", "htmlq", "pastel", "xdelta3", "ruplacer",
+]
+data = [
+  "lzip", "libarchive", "cflow", "datamash", "expat", "actionlint", "yamlfmt",
+  "gojq", "zopfli", "uncrustify",
+]

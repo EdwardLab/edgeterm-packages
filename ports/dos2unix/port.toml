@@ -1,0 +1,29 @@
+[package]
+name = "dos2unix"
+version = "7.5.6"
+revision = "1edgeterm1"
+license = "BSD-2-Clause"
+homepage = "https://waterlan.home.xs4all.nl/dos2unix.html"
+description = "Text file line ending converter"
+depends = []
+
+[source]
+url = "https://downloads.sourceforge.net/project/dos2unix/dos2unix/7.5.6/dos2unix-7.5.6.tar.gz"
+sha256 = "63650acbd0c7fa8623429bcbf93a888e3351a1cad0f556cf41876f5673dd7d0b"
+
+[build]
+system = "make"
+pristine_source = true
+make_args = ["prefix=/usr/local", "ENABLE_NLS=", "ENABLE_UNICODE=1"]
+install_args = []
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["dos2unix", "unix2dos", "mac2unix", "unix2mac"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["dos2unix --version"]

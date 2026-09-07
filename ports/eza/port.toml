@@ -1,7 +1,7 @@
 [package]
 name = "eza"
 version = "0.23.5"
-revision = "1edgeterm1"
+revision = "1edgeterm2"
 license = "EUPL-1.2"
 homepage = "https://eza.rocks/"
 description = "Modern directory listing utility"
@@ -13,12 +13,18 @@ sha256 = "bbf179f2611c904014431740b559e8055276c12fcf978a7e31c271663548337f"
 
 [build]
 system = "cargo"
+shadow_source = true
+build_in_source_copy = true
+pristine_source = true
+target = "/toolchain/edgeterm-posix/config/threaded/wasm32-wasmer-wasi.json"
+rust_libc_wasix = true
+rust_wasix_toolchain = true
+threads = true
 make_args = ["--no-default-features"]
-install_args = ["install -m 755 target/wasm32-wasip1/release/eza.wasm /build/stage/usr/local/bin/eza"]
+install_args = ["install -m 755 target/wasm32-wasmer-wasi/release/eza.wasm /build/stage/usr/local/bin/eza"]
 dependencies = []
-pre = [
-  "perl -0pi -e 's/#\\[cfg\\(windows\\)\\]\\n        let stdout_term_width = \\{/#\\[cfg(not(any(unix, windows)))\\]\\n        let stdout_term_width = None;\\n        #[cfg(windows)]\\n        let stdout_term_width = {/' \"$SOURCE_DIR/src/output/mod.rs\"",
-]
+rust_unix = true
+pre = []
 post = []
 
 [runtime]

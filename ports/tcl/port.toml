@@ -1,0 +1,31 @@
+[package]
+name = "tcl"
+version = "9.0.4"
+revision = "1edgeterm1"
+license = "TCL"
+homepage = "https://www.tcl-lang.org/"
+description = "Tcl scripting language"
+depends = []
+
+[source]
+url = "https://prdownloads.sourceforge.net/tcl/tcl9.0.4-src.tar.gz"
+sha256 = "d0aed49230bc02a65c1e0229e65f34590a4b037ec40d546f32573b467f7551ea"
+
+[build]
+system = "custom"
+commands = ["mkdir -p /build/work/tcl", "cd /build/work/tcl && ac_cv_header_sys_epoll_h=no ac_cv_func_epoll_create=no ac_cv_header_sys_eventfd_h=no ac_cv_func_eventfd=no CONFIG_SITE=/dev/null \"$SOURCE_DIR/unix/configure\" --host=wasm32-wasi --prefix=/usr/local --disable-shared --disable-threads --disable-zipfs", "make -C /build/work/tcl -j\"${BUILD_JOBS:-4}\" CC=\"$CC\" CFLAGS=\"$CFLAGS\" LDFLAGS=\"$LDFLAGS\" binaries libraries", "make -C /build/work/tcl DESTDIR=/build/stage install-binaries install-libraries", "cp /build/stage/usr/local/bin/tclsh9.0 /build/stage/usr/local/bin/tclsh"]
+dependencies = ["zlib"]
+pre = []
+post = []
+emulated_mman = true
+asyncify = true
+threads = true
+pristine_source = true
+
+[runtime]
+commands = ["tclsh", "tclsh9.0"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["tclsh <<< 'puts [expr {1 + 1}]'"]

@@ -1,7 +1,7 @@
 [package]
 name = "gzip"
 version = "1.14"
-revision = "1edgeterm1"
+revision = "1edgeterm2"
 license = "GPL-3.0-or-later"
 homepage = "https://www.gnu.org/software/gzip/"
 description = "GNU gzip compression utility"
@@ -13,6 +13,7 @@ sha256 = "613d6ea44f1248d7370c7ccdeee0dd0017a09e6c39de894b3c6f03f981191c6b"
 
 [build]
 system = "autotools"
+pristine_source = true
 configure_args = ["--disable-nls"]
 dependencies = []
 pre = []

@@ -1,0 +1,29 @@
+[package]
+name = "zoxide"
+version = "0.10.0"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://github.com/ajeetdsouza/zoxide"
+description = "Smarter directory navigation"
+depends = []
+
+[source]
+url = "https://github.com/ajeetdsouza/zoxide/archive/refs/tags/v0.10.0.tar.gz"
+sha256 = "4fcd4272b013a10b637dbcc299c58a9924b94470a9042677ca1a204cc2e9150e"
+
+[build]
+system = "cargo"
+pristine_source = true
+locked = false
+install_args = ["install -m 755 target/wasm32-wasip1/release/zoxide.wasm /build/stage/usr/local/bin/zoxide"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["zoxide"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["zoxide --version"]

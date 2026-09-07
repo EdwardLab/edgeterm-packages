@@ -13,6 +13,9 @@ sha256 = "c8a36e6e9397f2fdfcb0cc246fcdb790b52a784f3c8cabc0d8baeb031852a148"
 
 [build]
 system = "cargo"
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
 install_args = ["install -m 755 target/wasm32-wasip1/release/just.wasm /build/stage/usr/local/bin/just"]
 dependencies = []
 pre = ["cp /port/platform_wasi.rs \"$SOURCE_DIR/src/platform/wasi.rs\"", "python3 /port/patch_just.py \"$SOURCE_DIR\""]

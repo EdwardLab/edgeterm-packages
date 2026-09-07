@@ -13,6 +13,7 @@ sha256 = "3acd3a8a3cce65a8d620321855d92fb602e026cbe8e13ee36bdec58483b59ace"
 
 [build]
 system = "autotools"
+pristine_source = true
 configure_args = ["--with-system-libdir=/usr/local/lib","--with-system-includedir=/usr/local/include"]
 dependencies = []
 pre = []

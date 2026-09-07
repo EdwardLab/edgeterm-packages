@@ -1,0 +1,31 @@
+[package]
+name = "pcre2"
+version = "10.46"
+revision = "1edgeterm1"
+license = "BSD-3-Clause"
+homepage = "https://www.pcre.org/"
+description = "Perl-compatible regular expression tools"
+depends = []
+
+[source]
+url = "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.46/pcre2-10.46.tar.gz"
+sha256 = "8d28d7f2c3b970c3a4bf3776bcbb5adfc923183ce74bc8df1ebaad8c1985bd07"
+
+[build]
+system = "cmake"
+pristine_source = true
+configure_args = ["-DPCRE2_BUILD_PCRE2_8=ON", "-DPCRE2_BUILD_PCRE2_16=OFF", "-DPCRE2_BUILD_PCRE2_32=OFF", "-DPCRE2_BUILD_TESTS=OFF", "-DPCRE2_BUILD_PCRE2GREP=ON"]
+make_args = []
+install_args = []
+dependencies = []
+pre = []
+post = []
+threads = true
+
+[runtime]
+commands = ["pcre2grep"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["pcre2grep -V"]

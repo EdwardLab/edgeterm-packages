@@ -1,0 +1,34 @@
+[package]
+name = "squirrel"
+version = "3.2"
+revision = "1edgeterm1"
+license = "MIT"
+license_file = "COPYRIGHT"
+homepage = "https://www.squirrel-lang.org/"
+description = "Squirrel programming language"
+depends = []
+
+[source]
+url = "https://github.com/albertodemichelis/squirrel/archive/refs/tags/v3.2.tar.gz"
+sha256 = "02805414cfadd5bbb921891d3599b83375a40650abd6404a8ab407dc5e86a996"
+
+[build]
+system = "custom"
+commands = [
+  "mkdir -p /build/work/squirrel /build/stage/usr/local/bin",
+  '$CXX $CXXFLAGS -fno-exceptions -fno-rtti -fno-strict-aliasing -I"$SOURCE_DIR/include" "$SOURCE_DIR"/squirrel/*.cpp "$SOURCE_DIR"/sqstdlib/*.cpp "$SOURCE_DIR"/sq/sq.c -o /build/work/squirrel/sq $LDFLAGS -lm',
+  "install -m 755 /build/work/squirrel/sq /build/stage/usr/local/bin/sq",
+]
+dependencies = []
+pre = []
+post = []
+asyncify = true
+pristine_source = true
+
+[runtime]
+commands = ["sq"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["sq -h"]

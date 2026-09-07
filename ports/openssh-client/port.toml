@@ -1,7 +1,7 @@
 [package]
 name = "openssh-client"
 version = "10.4p1"
-revision = "1edgeterm1"
+revision = "1edgeterm2"
 license = "BSD-2-Clause"
 license_file = "LICENCE"
 homepage = "https://www.openssh.com/"
@@ -14,6 +14,9 @@ sha256 = "ef6026dd2aea8d56059638d5d3262902c892ceba9f88395835e0d06d3fb63238"
 
 [build]
 system = "autotools"
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
 configure_args = ["--without-pam","--without-zlib","--with-ssl-dir=/build/prefix"]
 dependencies = ["openssl"]
 pre = ["python3 /port/patch_openssh.py \"$SOURCE_DIR\""]

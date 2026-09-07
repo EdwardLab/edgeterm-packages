@@ -1,0 +1,30 @@
+[package]
+name = "wasm3"
+version = "0.5.0"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://github.com/wasm3/wasm3"
+description = "Portable WebAssembly interpreter"
+depends = []
+
+[source]
+url = "https://github.com/wasm3/wasm3/archive/refs/tags/v0.5.0.tar.gz"
+sha256 = "b778dd72ee2251f4fe9e2666ee3fe1c26f06f517c3ffce572416db067546536c"
+
+[build]
+system = "cmake"
+pristine_source = true
+configure_args = ["-DBUILD_WASI=none", "-DBUILD_NATIVE=OFF"]
+make_args = []
+install_args = []
+dependencies = []
+pre = []
+post = ["install -d /build/stage/usr/local/bin", "install -m 755 /build/work/cmake/wasm3 /build/stage/usr/local/bin/wasm3"]
+
+[runtime]
+commands = ["wasm3"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["wasm3 --version"]

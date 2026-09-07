@@ -1,0 +1,30 @@
+[package]
+name = "cmark"
+version = "0.31.2"
+revision = "1edgeterm1"
+license = "BSD-2-Clause"
+homepage = "https://github.com/commonmark/cmark"
+description = "CommonMark parser and renderer"
+depends = []
+
+[source]
+url = "https://github.com/commonmark/cmark/archive/refs/tags/0.31.2.tar.gz"
+sha256 = "f9bc5ca38bcb0b727f0056100fac4d743e768872e3bacec7746de28f5700d697"
+
+[build]
+system = "cmake"
+pristine_source = true
+configure_args = ["-DCMARK_TESTS=OFF"]
+make_args = []
+install_args = []
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["cmark"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["cmark --version"]

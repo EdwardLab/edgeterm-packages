@@ -11,7 +11,7 @@ RUN apt-get update \
       autoconf automake autopoint bison build-essential ca-certificates cmake curl \
       debhelper devscripts dpkg-dev file flex gettext git gnupg gperf help2man \
       libtool lzip make meson ninja-build patch perl pkg-config python3 python3-tomli \
-      rsync tar texinfo unzip xz-utils zip \
+      rsync ruby tar texinfo unzip xz-utils zip \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSLo /tmp/rustup-init \

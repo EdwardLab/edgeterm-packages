@@ -1,0 +1,30 @@
+[package]
+name = "ncurses"
+version = "6.6"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://invisible-island.net/ncurses/"
+description = "Terminal control library and utilities"
+depends = []
+
+[source]
+url = "https://invisible-mirror.net/archives/ncurses/ncurses-6.6.tar.gz"
+sha256 = "355b4cbbed880b0381a04c46617b7656e362585d52e9cf84a67e2009b749ff11"
+
+[build]
+system = "autotools"
+pristine_source = true
+configure_args = ["--without-shared", "--with-normal", "--without-ada", "--without-cxx-binding", "--without-manpages", "--without-tests", "--disable-database", "--disable-db-install", "--disable-termcap", "--disable-stripping", "--with-fallbacks=xterm,xterm-256color,screen,vt100,ansi,dumb"]
+make_args = []
+install_args = []
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["tput", "clear"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["tput cols"]

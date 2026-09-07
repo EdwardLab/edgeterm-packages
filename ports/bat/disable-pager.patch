@@ -1,9 +1,0 @@
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -19,7 +19,6 @@
-     "clap",
-     "etcetera",
--    "paging",
-     "regex-onig",
-     "wild",
- ]

@@ -1,0 +1,34 @@
+[package]
+name = "ncompress"
+version = "5.0"
+revision = "1edgeterm3"
+license = "Public-Domain"
+homepage = "https://github.com/vapier/ncompress"
+description = "Classic compress utility"
+depends = []
+
+[source]
+url = "https://github.com/vapier/ncompress/archive/refs/tags/v5.0.tar.gz"
+sha256 = "96ec931d06ab827fccad377839bfb91955274568392ddecf809e443443aead46"
+
+[build]
+system = "custom"
+pristine_source = true
+commands = [
+  "rm -rf /build/ncompress-work && mkdir -p /build/ncompress-work",
+  'cp -a "$SOURCE_DIR"/. /build/ncompress-work/',
+  'make -C /build/ncompress-work -j"${BUILD_JOBS:-4}" CC="$CC" CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS" compress',
+  "install -d /build/stage/usr/local/bin",
+  "install -m 755 /build/ncompress-work/compress /build/stage/usr/local/bin/compress",
+]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["compress"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["compress -V"]

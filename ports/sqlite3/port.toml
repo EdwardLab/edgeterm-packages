@@ -13,7 +13,8 @@ sha256 = "0e9483900e92cd5de8fd48d16bf9200145a61f7fd5be542a5ac81d8a9516eb9c"
 
 [build]
 system = "autotools"
-configure_args = ["--disable-shared","--enable-static","--disable-readline"]
+pristine_source = true
+configure_args = ["--disable-shared","--enable-static","--disable-readline","--disable-threadsafe"]
 dependencies = []
 pre = []
 post = []
@@ -25,4 +26,3 @@ capability = "full"
 
 [tests]
 smoke = ["sqlite3 --version","sqlite3 :memory: 'select 1'"]
-

@@ -1,0 +1,17 @@
+{
+  "schema": "org.edgeterm.posix.rust-overlays.v1",
+  "overlays": {
+    "terminal_size": {
+      "source": "rust/terminal_size",
+      "paths": [
+        "src"
+      ]
+    },
+    "uzers": {
+      "source": "rust/uzers",
+      "paths": [
+        "src"
+      ]
+    }
+  }
+}

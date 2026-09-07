@@ -15,8 +15,9 @@ sha256 = "b31aad2d4c26b0c6e8ebe894d59022520bbebce33e082d7d29e4325eee35d308"
 system = "go"
 make_args = ["-o","/build/stage/usr/local/bin/shfmt","./cmd/shfmt"]
 dependencies = []
-pre = ["python3 /port/patch_shfmt.py \"$SOURCE_DIR\""]
+pre = []
 post = []
+pristine_source = true
 
 [runtime]
 commands = ["shfmt"]

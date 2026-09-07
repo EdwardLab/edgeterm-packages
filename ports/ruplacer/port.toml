@@ -1,0 +1,29 @@
+[package]
+name = "ruplacer"
+version = "0.10.0"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://github.com/your-tools/ruplacer"
+description = "Recursive search and replace utility"
+depends = []
+
+[source]
+url = "https://github.com/your-tools/ruplacer/archive/refs/tags/v0.10.0.tar.gz"
+sha256 = "64570d46e9d3587903bc6d553da5f1581be9771a08672fd7a1b08e65ee0e008a"
+
+[build]
+system = "cargo"
+pristine_source = true
+locked = false
+install_args = ["install -m 755 target/wasm32-wasip1/release/ruplacer.wasm /build/stage/usr/local/bin/ruplacer"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["ruplacer"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["ruplacer --version"]

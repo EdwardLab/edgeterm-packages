@@ -1,0 +1,33 @@
+{
+  "schema": "org.edgeterm.posix-profile.v1",
+  "profile_version": 1,
+  "abi_version": 1,
+  "release": "0.1.0",
+  "target": "wasm32-wasix",
+  "capabilities": {
+    "filesystem": { "status": "native", "tests": ["filesystem"] },
+    "filesystem_statistics": { "status": "compat", "tests": ["libc-contracts"] },
+    "mount_table": { "status": "compat", "tests": ["libc-contracts"] },
+    "directory_namespace": { "status": "compat", "tests": ["standard-headers"] },
+    "working_directory": { "status": "compat", "tests": ["filesystem"] },
+    "process_spawn": { "status": "native", "tests": ["process-spawn"] },
+    "processor_topology": { "status": "advisory", "tests": ["standard-headers"] },
+    "terminal": { "status": "native", "tests": ["terminal"] },
+    "thread_local_storage": { "status": "compat", "tests": ["headers"] },
+    "wide_memory": { "status": "compat", "tests": ["libc-contracts"] },
+    "stdio_locking": { "status": "compat", "tests": ["libc-contracts"] },
+    "system_load": { "status": "advisory", "tests": ["standard-headers"] },
+    "identity": { "status": "compat", "tests": ["identity"] },
+    "random": { "status": "compat", "tests": ["libc-contracts"] },
+    "cmsg_layout": { "status": "compat", "tests": ["headers"] },
+    "advisory_memory": { "status": "advisory", "tests": ["libc-contracts"] },
+    "resource_usage": { "status": "compat", "tests": ["rust-libc-overlay"] },
+    "file_locking": { "status": "unsupported", "errno": "ENOSYS" },
+    "interface_enumeration": { "status": "unsupported", "errno": "ENOSYS" },
+    "locale_name": { "status": "compat", "tests": ["standard-headers", "normalize-source"] },
+    "path_error_reporting": { "status": "compat", "tests": ["libc-contracts"] },
+    "timestamp_conversion": { "status": "compat", "tests": ["filesystem"] },
+    "signal_mask_jump": { "status": "unsupported", "errno": "ENOSYS" },
+    "virtual_root": { "status": "unsupported", "errno": "ENOSYS" }
+  }
+}

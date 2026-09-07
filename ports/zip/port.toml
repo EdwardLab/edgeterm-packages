@@ -13,6 +13,8 @@ sha256 = "f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369"
 
 [build]
 system = "custom"
+shadow_source = true
+pristine_source = true
 commands = ["sed -i 's/^OBJN = zipnote.o  $(OBJU)$/OBJN = zipnote.o  $(OBJU) $(OCRCTB)/; s/^OBJS = zipsplit.o $(OBJU)$/OBJS = zipsplit.o $(OBJU) $(OCRCTB)/' \"$SOURCE_DIR/unix/Makefile\"", "make -C \"$SOURCE_DIR\" -f unix/Makefile -j\"${BUILD_JOBS:-4}\" zips CC=\"$CC\" BIND=\"$CC\" CFLAGS=\"$CFLAGS -I. -DUNIX -DHAVE_DIRENT_H -DHAVE_TERMIOS_H -DUIDGID_NOT_16BIT -DUNICODE_SUPPORT -DLARGE_FILE_SUPPORT\" LFLAGS1=\"$LDFLAGS\" LFLAGS2=", "make -C \"$SOURCE_DIR\" -f unix/Makefile prefix=/build/stage/usr/local install"]
 dependencies = []
 pre = []

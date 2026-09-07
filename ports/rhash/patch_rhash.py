@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
+import argparse
 from pathlib import Path
 
 
-source = Path("/build/source-root/RHash-1.4.6/parse_cmdline.c")
+parser = argparse.ArgumentParser()
+parser.add_argument("source", type=Path)
+args = parser.parse_args()
+source = args.source / "parse_cmdline.c"
 text = source.read_text()
 
 text = text.replace(

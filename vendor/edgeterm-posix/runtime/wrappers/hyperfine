@@ -1,0 +1,9 @@
+#!/bin/sh
+for argument in "$@"; do
+  case "$argument" in
+    --shell|--shell=*|-S|-S*)
+      exec /bin/busybox ash -c 'exec "$0" "$@"' /usr/local/sbin/hyperfine-real "$@"
+      ;;
+  esac
+done
+exec /bin/busybox ash -c 'exec "$0" --shell=none "$@"' /usr/local/sbin/hyperfine-real "$@"

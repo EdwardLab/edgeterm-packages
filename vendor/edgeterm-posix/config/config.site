@@ -1,0 +1,71 @@
+# Conservative answers for contracts supplied by the EdgeTerm POSIX profile.
+ac_cv_func_getifaddrs=yes
+ac_cv_func_getgroups=yes
+ac_cv_func_getlogin=yes
+ac_cv_func_madvise=yes
+ac_cv_func_strerror_r=yes
+ac_cv_func_setvbuf=yes
+ac_cv_func_vprintf=yes
+ac_cv_func_wmempcpy=yes
+ac_cv_header_ifaddrs_h=yes
+ac_cv_header_mntent_h=yes
+ac_cv_header_sys_sysinfo_h=yes
+ac_cv_header_sys_sysmacros_h=yes
+ac_cv_header_sys_statvfs_h=yes
+
+# Core target types are provided by the WASIX C library. Some older gnulib
+# configure probes temporarily hide their own HAVE_SYS_TYPES_H result while
+# checking these types, which creates invalid fallback macros in config.h.
+ac_cv_type_mode_t=yes
+ac_cv_type_nlink_t=yes
+ac_cv_type_pid_t=yes
+
+# The target allocator is usable for zero-sized requests.  Cross-compiling
+# projects cannot execute the probe and older gnulib releases otherwise select
+# replacement allocators that conflict with the target C library.
+ac_cv_func_malloc_0_nonnull=yes
+ac_cv_func_realloc_0_nonnull=yes
+gl_cv_func_malloc_0_nonnull=yes
+gl_cv_func_realloc_0_nonnull=yes
+
+# The target C library exposes the locale API but not a portable object layout.
+# Let portability libraries provide their opaque locale representation instead
+# of guessing an unsupported host-specific layout while cross-compiling.
+gt_cv_func_uselocale_works=no
+
+# These symbols are linkable and return ENOSYS when the runtime cannot preserve
+# their contract. The capability profile, not Autoconf symbol detection,
+# records whether the operation is usable.
+ac_cv_func_chroot=yes
+ac_cv_func_fchdir=yes
+ac_cv_func_memfd_create=yes
+ac_cv_func_mknod=yes
+ac_cv_func_getmntent=yes
+ac_cv_func_setmntent=yes
+ac_cv_func_endmntent=yes
+ac_cv_func_statvfs=yes
+ac_cv_func_fstatvfs=yes
+fu_cv_sys_mounted_getmntent1=yes
+ac_cv_func_getgroups_works=yes
+gl_cv_func_getgroups_works=yes
+gl_cv_func_rmdir_works=yes
+fu_cv_sys_stat_statvfs=yes
+fu_cv_sys_stat_statvfs64=no
+ac_cv_member_struct_statvfs_f_namemax=yes
+ac_cv_member_struct_statvfs_f_fstypename=yes
+
+# The runtime implements spawn directly and validates executable formats before
+# the child starts. Prefer that path over portability-library fork replacements,
+# which cannot preserve the browser runtime's module registry.
+ac_cv_func_posix_spawn=yes
+gl_cv_func_posix_spawn_works=yes
+gl_cv_func_posix_spawn_secure_exec=yes
+gl_cv_func_posix_spawnp_secure_exec=yes
+gl_cv_func_posix_spawn_file_actions_addclose_works=yes
+gl_cv_func_posix_spawn_file_actions_adddup2_works=yes
+gl_cv_func_posix_spawn_file_actions_addopen_works=yes
+
+# Bash derives this result from its general signal probe when cross-compiling.
+# The target exposes ordinary setjmp/longjmp but does not expose the
+# signal-mask-preserving variants, so select Bash's upstream fallback path.
+bash_cv_func_sigsetjmp=missing

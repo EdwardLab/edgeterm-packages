@@ -1,0 +1,6 @@
+{
+  "schema": "org.edgeterm.posix.rust-crates.v1",
+  "cfg_unix": [
+    "uzers"
+  ]
+}

@@ -1,7 +1,7 @@
 [package]
 name = "grep"
 version = "3.12"
-revision = "1edgeterm1"
+revision = "1edgeterm2"
 license = "GPL-3.0-or-later"
 homepage = "https://www.gnu.org/software/grep/"
 description = "GNU pattern matching utility"
@@ -17,9 +17,10 @@ link_compat = true
 include_compat = true
 configure_args = ["--disable-nls","--disable-perl-regexp"]
 dependencies = []
-pre = ["export ac_cv_func_getdtablesize=yes", "sed -i 's/opendirat (/gl_opendirat (/g' \"$SOURCE_DIR/lib/opendirat.c\" \"$SOURCE_DIR/lib/opendirat.h\"", "sed -i 's/opendirat(/gl_opendirat(/g' \"$SOURCE_DIR/lib/fts.c\""]
+pre = ["export ac_cv_func_getdtablesize=yes"]
 post_configure = ["sed -i 's/ gnulib-tests//' /build/work/Makefile"]
 post = []
+pristine_source = true
 
 [runtime]
 commands = ["grep","egrep","fgrep"]

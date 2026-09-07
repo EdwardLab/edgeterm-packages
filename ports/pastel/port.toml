@@ -1,0 +1,29 @@
+[package]
+name = "pastel"
+version = "0.12.0"
+revision = "1edgeterm1"
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/sharkdp/pastel"
+description = "Color manipulation utility"
+depends = []
+
+[source]
+url = "https://github.com/sharkdp/pastel/archive/refs/tags/v0.12.0.tar.gz"
+sha256 = "2903853f24d742fe955edd9bea17947eb8f3f44000a8ac528d16f2ea1e52b78b"
+
+[build]
+system = "cargo"
+pristine_source = true
+locked = false
+install_args = ["install -m 755 target/wasm32-wasip1/release/pastel.wasm /build/stage/usr/local/bin/pastel"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["pastel"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["pastel --version"]

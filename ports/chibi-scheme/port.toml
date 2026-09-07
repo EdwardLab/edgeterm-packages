@@ -1,0 +1,35 @@
+[package]
+name = "chibi-scheme"
+version = "0.12"
+revision = "1edgeterm1"
+license = "BSD-3-Clause"
+homepage = "https://synthcode.com/wiki/chibi-scheme"
+description = "Small Scheme implementation"
+depends = []
+
+[source]
+url = "https://github.com/ashinn/chibi-scheme/archive/refs/tags/0.12.tar.gz"
+sha256 = "b70a1147bc70a0f90df3fb6081bc99808237fd17a9accf9ee7a2cc20d95a4df0"
+
+[build]
+system = "custom"
+commands = [
+  "make -C \"$SOURCE_DIR\" -j\"${BUILD_JOBS:-4}\" CC=\"$CC\" AR=\"$AR\" CFLAGS=\"$CFLAGS -DSEXP_USE_MODULES=0\" LDFLAGS=\"$LDFLAGS\" SEXP_USE_DL=0 CHIBI_DEPENDENCIES= chibi-scheme-static",
+  "install -d /build/stage/usr/local/bin /build/stage/usr/local/share/chibi",
+  "install -m 755 \"$SOURCE_DIR/chibi-scheme-static\" /build/stage/usr/local/bin/chibi-scheme",
+  "cp -R \"$SOURCE_DIR/lib/.\" /build/stage/usr/local/share/chibi/",
+]
+dependencies = []
+pre = []
+post = []
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
+
+[runtime]
+commands = ["chibi-scheme"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["chibi-scheme -e '(write (+ 1 1))'"]

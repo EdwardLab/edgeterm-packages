@@ -13,10 +13,13 @@ sha256 = "9f6019cfeeae8ace7067ad22da4e4f857bb2cfa6c2deaa2258f55b2227ec937a"
 
 [build]
 system = "make"
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
 make_args = []
 install_args = []
 dependencies = []
-pre = ["python3 /port/patch_rhash.py", "(cd \"$SOURCE_DIR\" && CC=\"$CC\" AR=\"$AR\" ./configure --prefix=/usr/local --disable-openssl --disable-gettext --enable-static)"]
+pre = ["python3 /port/patch_rhash.py \"$SOURCE_DIR\"", "(cd \"$SOURCE_DIR\" && CC=\"$CC\" AR=\"$AR\" ./configure --prefix=/usr/local --disable-openssl --disable-gettext --enable-static)"]
 post = []
 
 [runtime]

@@ -1,7 +1,7 @@
 [package]
 name = "brotli"
 version = "1.2.0"
-revision = "1edgeterm1"
+revision = "1edgeterm2"
 license = "MIT"
 homepage = "https://github.com/google/brotli"
 description = "Brotli compression utility"
@@ -13,6 +13,7 @@ sha256 = "816c96e8e8f193b40151dad7e8ff37b1221d019dbcb9c35cd3fadbfe6477dfec"
 
 [build]
 system = "cmake"
+pristine_source = true
 configure_args = ["-DBROTLI_DISABLE_TESTS=ON"]
 dependencies = []
 pre = []
@@ -25,4 +26,3 @@ capability = "full"
 
 [tests]
 smoke = ["brotli --version"]
-

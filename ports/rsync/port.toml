@@ -13,6 +13,7 @@ sha256 = "bd88cf82fa653da32314fb229136407c5c90f80d1758d8f4b091767877d8fa96"
 
 [build]
 system = "autotools"
+pristine_source = true
 asyncify = true
 threads = true
 configure_args = ["--disable-md2man","--disable-xxhash","--disable-zstd","--disable-lz4","--disable-openssl"]

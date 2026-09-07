@@ -13,6 +13,8 @@ sha256 = "8814ba072182b605d156d7589c19a43b89fc58ea479b9355146160946f8cf6e9"
 
 [build]
 system = "autotools"
+pristine_source = true
+main_with_environment = true
 configure_args = ["--disable-nls"]
 dependencies = []
 pre = []

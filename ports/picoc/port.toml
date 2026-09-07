@@ -1,0 +1,38 @@
+[package]
+name = "picoc"
+version = "3.2.2"
+revision = "1edgeterm1"
+license = "BSD-3-Clause"
+homepage = "https://github.com/jpoirier/picoc"
+description = "Small C interpreter"
+depends = []
+
+[source]
+url = "https://github.com/jpoirier/picoc/archive/refs/tags/v3.2.2.tar.gz"
+sha256 = "802cd342c7c89bc4b65fff68f8ee613b7ac5ac76492b7093717911c3481d0fc7"
+
+[build]
+system = "custom"
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
+commands = [
+  'python3 /port/prepare.py "$SOURCE_DIR"',
+  'make -C "$SOURCE_DIR" -j"${BUILD_JOBS:-4}" CC="$CC" CFLAGS="$CFLAGS -DUNIX_HOST" LIBS="$LDFLAGS -lm" LDFLAGS="$LDFLAGS"',
+  "install -d /build/stage/usr/local/bin",
+  'install -m 755 "$SOURCE_DIR/picoc" /build/stage/usr/local/bin/picoc',
+]
+dependencies = []
+pre = []
+post = []
+include_compat = true
+link_compat = true
+threads = true
+
+[runtime]
+commands = ["picoc"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["picoc -h"]

@@ -63,6 +63,23 @@ if new not in content:
 
 path.write_text(content)
 
+path = Path(sys.argv[1]) / "Source/cmSystemTools.cxx"
+content = path.read_text()
+old = """#else
+  std::string exe = cmsys::SystemTools::FindProgram(argv0);
+#endif"""
+new = """#elif defined(__wasi__)
+  char const* executable_path = std::getenv("EDGETERM_EXECUTABLE_PATH");
+  std::string exe = executable_path != nullptr ? executable_path : argv0;
+#else
+  std::string exe = cmsys::SystemTools::FindProgram(argv0);
+#endif"""
+if new not in content:
+    if old not in content:
+        raise RuntimeError("CMake executable discovery was not found")
+    content = content.replace(old, new, 1)
+path.write_text(content)
+
 path = Path(sys.argv[1]) / "Utilities/cmlibuv/include/uv/unix.h"
 content = path.read_text()
 old = """#ifdef CMAKE_BOOTSTRAP

@@ -1,0 +1,32 @@
+[package]
+name = "datamash"
+version = "1.9"
+revision = "1edgeterm2"
+license = "GPL-3.0-or-later"
+homepage = "https://www.gnu.org/software/datamash/"
+description = "Command-line statistical and data calculation tool"
+depends = []
+
+[source]
+url = "https://ftp.gnu.org/gnu/datamash/datamash-1.9.tar.gz"
+sha256 = "f382ebda03650dd679161f758f9c0a6cc9293213438d4a77a8eda325aacb87d2"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-shared", "--disable-nls"]
+make_args = []
+install_args = []
+dependencies = []
+pre = ["export gl_cv_func_strcasecmp_works=yes"]
+post = []
+include_compat = true
+link_compat = true
+pristine_source = true
+
+[runtime]
+commands = ["datamash"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["datamash --version"]

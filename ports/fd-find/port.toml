@@ -13,6 +13,9 @@ sha256 = "3a7e027af8c8e91c196ac259c703d78cd55c364706ddafbc66d02c326e57a456"
 
 [build]
 system = "cargo"
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
 target = "wasm32-wasip1-threads"
 locked = false
 make_args = ["--no-default-features"]

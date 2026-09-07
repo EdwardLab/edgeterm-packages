@@ -1,7 +1,7 @@
 [package]
 name = "p7zip"
 version = "17.06"
-revision = "1edgeterm1"
+revision = "1edgeterm2"
 license = "LGPL-2.1-or-later"
 homepage = "https://github.com/p7zip-project/p7zip"
 description = "7-Zip archive utilities"
@@ -14,20 +14,19 @@ sha256 = "c35640020e8f044b425d9c18e1808ff9206dc7caf77c9720f57eb0849d714cd1"
 [build]
 system = "custom"
 commands = [
-  "cp \"$SOURCE_DIR/makefile.linux_any_cpu\" \"$SOURCE_DIR/makefile.machine\"",
-  "sed -i 's/^CFLAGS=-c/override CFLAGS=-c/; s/^CXXFLAGS=-c/override CXXFLAGS=-c/' \"$SOURCE_DIR/makefile.glb\"",
-  "find \"$SOURCE_DIR/CPP/7zip\" -name 'makefile.list' -type f -exec sed -i 's/-DZSTD_MULTITHREAD//g' {} +",
-  "make -C \"$SOURCE_DIR\" -j\"${BUILD_JOBS:-4}\" CC=\"$CC\" CXX=\"$CXX\" OPTFLAGS=-O2 TARGET_FLAGS=\"-ffunction-sections -fdata-sections -D_7ZIP_ST -DFL2_SINGLETHREAD -I../../../../C/zstd\" LDFLAGS=\"$LDFLAGS -Wl,--gc-sections\" LOCAL_LIBS= LOCAL_LIBS_DLL= 7za",
+  "cmake -S \"$SOURCE_DIR/CPP/7zip/CMAKE/7za\" -B /build/work/p7zip -G Ninja -DCMAKE_TOOLCHAIN_FILE=/toolchain/wasix-toolchain.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS=\"$CFLAGS\" -DCMAKE_CXX_FLAGS=\"$CXXFLAGS\" -DCMAKE_EXE_LINKER_FLAGS=\"$LDFLAGS\"",
+  "cmake --build /build/work/p7zip --parallel \"${BUILD_JOBS:-4}\"",
   "mkdir -p /build/stage/usr/local/bin",
-  "cp \"$SOURCE_DIR/bin/7za\" /build/stage/usr/local/bin/7za",
-  "cp \"$SOURCE_DIR/bin/7za\" /build/stage/usr/local/bin/7z",
-  "cp \"$SOURCE_DIR/bin/7za\" /build/stage/usr/local/bin/7zr",
+  "cp /build/work/p7zip/7za /build/stage/usr/local/bin/7za",
+  "ln -s 7za /build/stage/usr/local/bin/7z",
+  "ln -s 7za /build/stage/usr/local/bin/7zr",
 ]
 dependencies = []
 pre = []
 post = []
 link_compat = true
-threads = false
+threads = true
+pristine_source = true
 
 [runtime]
 commands = ["7z","7za","7zr"]

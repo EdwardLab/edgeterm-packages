@@ -1,0 +1,31 @@
+[package]
+name = "grex"
+version = "1.4.6"
+revision = "1edgeterm1"
+license = "Apache-2.0"
+homepage = "https://github.com/pemistahl/grex"
+description = "Regular expression generator"
+depends = []
+
+[source]
+url = "https://github.com/pemistahl/grex/archive/refs/tags/v1.4.6.tar.gz"
+sha256 = "2ab9cb4c3d921711f23ea33a9e60dc11e9eaab450b16d1f2247bea2276822433"
+
+[build]
+system = "cargo"
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
+locked = false
+install_args = ["install -m 755 target/wasm32-wasip1/release/grex.wasm /build/stage/usr/local/bin/grex"]
+dependencies = []
+pre = ["sed -i 's/#\\[cfg(not(target_family = \"wasm\"))\\]/#[cfg(any(not(target_family = \"wasm\"), target_os = \"wasi\"))]/; s/#\\[cfg(target_family = \"wasm\")\\]/#[cfg(all(target_family = \"wasm\", not(target_os = \"wasi\")))]/' \"$SOURCE_DIR/src/main.rs\"", "sed -i 's/cfg(not(target_family = \"wasm\"))/cfg(any(not(target_family = \"wasm\"), target_os = \"wasi\"))/' \"$SOURCE_DIR/Cargo.toml\""]
+post = []
+
+[runtime]
+commands = ["grex"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["grex --version"]

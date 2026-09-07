@@ -1,0 +1,35 @@
+[package]
+name = "hexedit"
+version = "1.6"
+revision = "1edgeterm1"
+license = "GPL-2.0-or-later"
+homepage = "https://github.com/pixel/hexedit"
+description = "Interactive hexadecimal file editor"
+depends = ["ncurses"]
+
+[source]
+url = "https://github.com/pixel/hexedit/archive/refs/tags/1.6.tar.gz"
+sha256 = "598906131934f88003a6a937fab10542686ce5f661134bc336053e978c4baae3"
+
+[build]
+system = "autotools"
+configure_args = []
+make_args = []
+install_args = []
+dependencies = ["ncurses"]
+pre = ["cp /build/prefix/lib/libncursesw.a /build/prefix/lib/libncurses.a", "export CPPFLAGS=\"$CPPFLAGS -I/build/prefix/include/ncursesw\"", "export LIBS=\"-lncursesw ${LIBS:-}\""]
+post = []
+asyncify = true
+link_compat = true
+pristine_source = true
+shadow_source = true
+build_in_source_copy = true
+
+[runtime]
+commands = ["hexedit"]
+mode = "interactive"
+capability = "full"
+browser_only = true
+
+[tests]
+smoke = ["hexedit --help 2>&1 | grep -qi usage"]

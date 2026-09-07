@@ -13,6 +13,7 @@ sha256 = "aae608dfe8213dfd05d909a57718ef82f30722c392344583d3f39050c7f29a80"
 
 [build]
 system = "make"
+pristine_source = true
 make_args = ["xxhsum"]
 install_args = []
 install_commands = ["mkdir -p /build/stage/usr/local/bin", "install -m 0755 \"$SOURCE_DIR/xxhsum\" /build/stage/usr/local/bin/xxhsum", "cp /build/stage/usr/local/bin/xxhsum /build/stage/usr/local/bin/xxh32sum", "cp /build/stage/usr/local/bin/xxhsum /build/stage/usr/local/bin/xxh64sum", "cp /build/stage/usr/local/bin/xxhsum /build/stage/usr/local/bin/xxh128sum"]

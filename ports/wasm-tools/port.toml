@@ -1,0 +1,29 @@
+[package]
+name = "wasm-tools"
+version = "1.256.0"
+revision = "1edgeterm1"
+license = "Apache-2.0 WITH LLVM-exception"
+homepage = "https://github.com/bytecodealliance/wasm-tools"
+description = "WebAssembly inspection and transformation tools"
+depends = []
+
+[source]
+url = "https://github.com/bytecodealliance/wasm-tools/archive/refs/tags/v1.256.0.tar.gz"
+sha256 = "6d7fe8cc21d969bc21d42f3b8ca47650a309b0383b0587e35e9e50aa0193f433"
+
+[build]
+system = "cargo"
+pristine_source = true
+locked = false
+install_args = ["install -m 755 target/wasm32-wasip1/release/wasm-tools.wasm /build/stage/usr/local/bin/wasm-tools"]
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["wasm-tools"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["wasm-tools --version"]

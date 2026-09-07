@@ -4,6 +4,30 @@ import sys
 
 root = Path(sys.argv[1])
 
+random = root / "src/random.c"
+content = random.read_text()
+include_marker = '#include "uv-common.h"\n'
+include_replacement = '''#include "uv-common.h"
+
+#if defined(__wasi__)
+#include <wasi/api.h>
+#endif
+'''
+if include_replacement not in content:
+    if include_marker not in content:
+        raise RuntimeError("libuv random include marker was not found")
+    content = content.replace(include_marker, include_replacement, 1)
+branch_marker = "#if defined(__PASE__)\n  rc = uv__random_readpath(\"/dev/urandom\", buf, buflen);"
+branch_replacement = '''#if defined(__wasi__)
+  rc = __wasi_random_get(buf, buflen) == 0 ? 0 : UV_EIO;
+#elif defined(__PASE__)
+  rc = uv__random_readpath("/dev/urandom", buf, buflen);'''
+if branch_replacement not in content:
+    if branch_marker not in content:
+        raise RuntimeError("libuv random platform branch was not found")
+    content = content.replace(branch_marker, branch_replacement, 1)
+random.write_text(content)
+
 core = root / "src/unix/core.c"
 content = core.read_text()
 old = """ssize_t uv__recvmsg(int fd, struct msghdr* msg, int flags) {

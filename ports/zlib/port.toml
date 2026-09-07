@@ -14,6 +14,8 @@ sha256 = "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23"
 
 [build]
 system = "custom"
+shadow_source = true
+pristine_source = true
 dependencies = []
 commands = [
   "cd \"$SOURCE_DIR\"",
@@ -21,4 +23,3 @@ commands = [
   "make -j\"${BUILD_JOBS:-4}\"",
   "make DESTDIR=/build/stage install",
 ]
-

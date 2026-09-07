@@ -1,0 +1,29 @@
+[package]
+name = "yamlfmt"
+version = "0.21.0"
+revision = "1edgeterm3"
+license = "Apache-2.0"
+homepage = "https://github.com/google/yamlfmt"
+description = "YAML formatter"
+depends = []
+
+[source]
+url = "https://github.com/google/yamlfmt/archive/refs/tags/v0.21.0.tar.gz"
+sha256 = "9ec915d70e527a94171eaaf6b785d1423222b5b82e7633f80dcc6b66e6a655aa"
+
+[build]
+system = "go"
+make_args = ["-o", "/build/stage/usr/local/bin/yamlfmt", "./cmd/yamlfmt"]
+dependencies = []
+pre = []
+post = []
+pristine_source = true
+
+[runtime]
+commands = ["yamlfmt"]
+mode = "streaming"
+capability = "full"
+adapter = "yamlfmt-stdin"
+
+[tests]
+smoke = ["yamlfmt --version"]

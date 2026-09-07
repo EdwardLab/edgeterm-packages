@@ -17,6 +17,7 @@ configure_args = ["--disable-nls"]
 dependencies = []
 pre = []
 post = []
+pristine_source = true
 link_compat = true
 
 [runtime]

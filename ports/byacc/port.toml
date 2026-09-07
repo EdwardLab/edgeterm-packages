@@ -1,0 +1,30 @@
+[package]
+name = "byacc"
+version = "20241231"
+revision = "1edgeterm2"
+license = "Public-Domain"
+homepage = "https://invisible-island.net/byacc/"
+description = "Berkeley Yacc parser generator"
+depends = []
+
+[source]
+url = "https://invisible-island.net/archives/byacc/byacc-20241231.tgz"
+sha256 = "192c2fae048d4e7f514ba451627f9c4e612765099f819c19191f9fde3e609673"
+
+[build]
+system = "autotools"
+pristine_source = true
+configure_args = ["--disable-shared"]
+make_args = []
+install_args = []
+dependencies = []
+pre = []
+post = ["cp /build/stage/usr/local/bin/yacc /build/stage/usr/local/bin/byacc", "rm /build/stage/usr/local/bin/yacc /build/stage/usr/local/share/man/man1/yacc.1"]
+
+[runtime]
+commands = ["byacc"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["byacc -V"]

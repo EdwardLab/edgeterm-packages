@@ -17,6 +17,7 @@ make_args = ["-o","/build/stage/usr/local/bin/yq","."]
 dependencies = []
 pre = []
 post = []
+pristine_source = true
 
 [runtime]
 commands = ["yq"]
@@ -25,4 +26,3 @@ capability = "full"
 
 [tests]
 smoke = ["yq --version","printf 'a: 1' | yq '.a'"]
-

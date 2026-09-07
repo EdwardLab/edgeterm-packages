@@ -1,0 +1,35 @@
+[package]
+name = "flex"
+version = "2.6.4"
+revision = "1edgeterm5"
+license = "BSD-2-Clause"
+homepage = "https://github.com/westes/flex"
+description = "Fast lexical analyzer generator"
+depends = ["m4"]
+
+[source]
+url = "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz"
+sha256 = "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-shared", "--disable-bootstrap"]
+make_args = []
+install_args = []
+dependencies = []
+pre = []
+post = ["mv /build/stage/usr/local/bin/flex /build/stage/usr/local/bin/flex-real", "rm -f /build/stage/usr/local/bin/flex++", "install -m 755 /port/flex-wrapper.sh /build/stage/usr/local/bin/flex", "install -m 755 /port/flex++-wrapper.sh /build/stage/usr/local/bin/flex++"]
+link_compat = true
+link_compat_via_ldflags = true
+asyncify = true
+pristine_source = true
+
+[runtime]
+commands = ["flex", "flex++"]
+mode = "streaming"
+capability = "full"
+adapter = "flex-m4"
+browser_only = true
+
+[tests]
+smoke = ["/usr/local/bin/flex-real --version"]

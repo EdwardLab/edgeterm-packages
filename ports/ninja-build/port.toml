@@ -13,6 +13,7 @@ sha256 = "974d6b2f4eeefa25625d34da3cb36bdcebe7fbce40f4c16ac0835fd1c0cbae17"
 
 [build]
 system = "cmake"
+pristine_source = true
 configure_args = ["-DBUILD_TESTING=OFF","-DNINJA_BUILD_BINARY=ON","-DNINJA_FORCE_PSELECT=ON"]
 dependencies = []
 pre = []

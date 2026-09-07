@@ -1,0 +1,2 @@
+set(UNIX TRUE)
+set(WIN32 FALSE)

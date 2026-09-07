@@ -3,7 +3,8 @@ from pathlib import Path
 import sys
 
 
-source = Path(sys.argv[1]) / "src/bin/bat/directories.rs"
+root = Path(sys.argv[1])
+source = root / "src/bin/bat/directories.rs"
 text = source.read_text()
 old = '''    fn new() -> Option<BatProjectDirs> {
         let basedirs = etcetera::choose_base_strategy().ok()?;

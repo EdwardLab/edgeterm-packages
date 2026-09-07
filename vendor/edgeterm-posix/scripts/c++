@@ -1,0 +1,22 @@
+#!/bin/sh
+set -eu
+: "${EDGETERM_POSIX_PREFIX:?Set EDGETERM_POSIX_PREFIX}"
+: "${EDGETERM_WASIX_CXX:?Set EDGETERM_WASIX_CXX}"
+link=yes
+for argument in "$@"; do
+    case "$argument" in
+        -c|-E|-S|-M|-MM|-fsyntax-only)
+            link=no
+            ;;
+    esac
+done
+if [ "$link" = yes ]; then
+    exec $EDGETERM_WASIX_CXX \
+        -isystem "$EDGETERM_POSIX_PREFIX/include" \
+        "$@" \
+        -Wl,--whole-archive "$EDGETERM_POSIX_PREFIX/lib/libedgeterm-posix.a" \
+        -Wl,--no-whole-archive
+fi
+exec $EDGETERM_WASIX_CXX \
+    -isystem "$EDGETERM_POSIX_PREFIX/include" \
+    "$@"

@@ -1,0 +1,33 @@
+[package]
+name = "nano"
+version = "9.2"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later"
+homepage = "https://www.nano-editor.org/"
+description = "Terminal text editor"
+depends = ["ncurses"]
+
+[source]
+url = "https://www.nano-editor.org/dist/v9/nano-9.2.tar.xz"
+sha256 = "05ecb99247b782e8a5b3a25ed4101dd034b0236902f7449bc9795b717642f7e9"
+
+[build]
+system = "autotools"
+configure_args = ["--disable-nls", "--disable-speller", "--disable-libmagic", "--disable-utf8"]
+make_args = []
+install_args = []
+dependencies = ["ncurses"]
+pre = ["cp /build/prefix/lib/libncursesw.a /build/prefix/lib/libncurses.a", "export CPPFLAGS=\"$CPPFLAGS -I/build/prefix/include/ncursesw\"", "export LIBS=\"-lncursesw ${LIBS:-}\""]
+post = []
+asyncify = true
+include_compat = true
+link_compat = true
+pristine_source = true
+
+[runtime]
+commands = ["nano"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["nano --version"]

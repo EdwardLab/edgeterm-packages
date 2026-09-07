@@ -1,0 +1,34 @@
+[package]
+name = "less"
+version = "708"
+revision = "1edgeterm1"
+license = "GPL-3.0-or-later OR BSD-2-Clause"
+homepage = "https://www.greenwoodsoftware.com/less/"
+description = "Terminal pager"
+depends = ["ncurses"]
+
+[source]
+url = "https://github.com/gwsw/less/archive/refs/tags/v708.tar.gz"
+sha256 = "687951329b36d1fcf9a159c2ad16d32e1c2b8084802a8b3b32fbb452b3fe7cf0"
+
+[build]
+system = "autotools"
+shadow_source = true
+pristine_source = true
+configure_args = ["--with-regex=posix"]
+make_args = []
+install_args = []
+install_commands = ["install -d /build/stage/usr/local/bin", "install -m 755 /build/work/less /build/work/lessecho /build/stage/usr/local/bin/"]
+dependencies = ["ncurses"]
+pre = ["make -C \"$SOURCE_DIR\" -f Makefile.aut funcs.h lessmsg.inc", "cp /build/prefix/lib/libncursesw.a /build/prefix/lib/libncurses.a", "export CPPFLAGS=\"$CPPFLAGS -I/build/prefix/include/ncursesw\"", "export LIBS=\"-lncursesw ${LIBS:-}\""]
+post = []
+asyncify = true
+
+[runtime]
+commands = ["less", "lessecho"]
+mode = "interactive"
+capability = "full"
+browser_only = true
+
+[tests]
+smoke = ["less --version"]

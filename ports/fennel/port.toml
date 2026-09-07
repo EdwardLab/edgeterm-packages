@@ -1,0 +1,35 @@
+[package]
+name = "fennel"
+version = "1.6.1"
+revision = "1edgeterm1"
+license = "MIT"
+license_file = "fennel-1.6.1.tar.gz"
+homepage = "https://fennel-lang.org/"
+description = "Lisp programming language that runs on Lua"
+depends = ["lua"]
+
+[source]
+url = "https://fennel-lang.org/downloads/fennel-1.6.1"
+sha256 = "8d0c1e838c5604b42151ea8696a41251bebacf299273c3c5b3c99c0c5ad7d6d7"
+raw = true
+
+[build]
+system = "custom"
+commands = [
+  "install -d /build/stage/usr/local/bin /build/stage/usr/local/share/fennel",
+  "install -m 644 \"$SOURCE_DIR/fennel-1.6.1.tar.gz\" /build/stage/usr/local/share/fennel/fennel.lua",
+  "$CC $CFLAGS /port/launcher.c $LDFLAGS -o /build/stage/usr/local/bin/fennel",
+]
+dependencies = []
+pre = []
+post = []
+asyncify = true
+pristine_source = true
+
+[runtime]
+commands = ["fennel"]
+mode = "interactive"
+capability = "full"
+
+[tests]
+smoke = ["fennel -e '(print (* 6 7))'"]

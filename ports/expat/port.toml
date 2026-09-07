@@ -1,0 +1,30 @@
+[package]
+name = "expat"
+version = "2.7.1"
+revision = "1edgeterm1"
+license = "MIT"
+homepage = "https://libexpat.github.io/"
+description = "Streaming XML parser and xmlwf utility"
+depends = []
+
+[source]
+url = "https://github.com/libexpat/libexpat/releases/download/R_2_7_1/expat-2.7.1.tar.xz"
+sha256 = "354552544b8f99012e5062f7d570ec77f14b412a3ff5c7d8d0dae62c0d217c30"
+
+[build]
+system = "cmake"
+pristine_source = true
+configure_args = ["-DEXPAT_BUILD_TOOLS=ON", "-DEXPAT_BUILD_EXAMPLES=OFF", "-DEXPAT_BUILD_TESTS=OFF", "-DEXPAT_BUILD_DOCS=OFF", "-DCMAKE_C_FLAGS=-DXML_DEV_URANDOM"]
+make_args = []
+install_args = []
+dependencies = []
+pre = []
+post = []
+
+[runtime]
+commands = ["xmlwf"]
+mode = "streaming"
+capability = "full"
+
+[tests]
+smoke = ["xmlwf -h"]

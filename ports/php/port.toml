@@ -1,0 +1,30 @@
+[package]
+name = "php"
+version = "8.4.23"
+revision = "1edgeterm2"
+license = "GPL-2.0-or-later"
+license_file = "LICENSE"
+homepage = "https://github.com/WordPress/wordpress-playground"
+description = "PHP 8.4 browser runtime for EdgeTerm"
+depends = []
+
+[source]
+url = "https://registry.npmjs.org/@php-wasm/web-8-4/-/web-8-4-3.1.51.tgz"
+sha256 = "a9b932c687582459bce69caaf10f0c7701ac0036feb0a9d55e7d8cfdd7997b29"
+
+[build]
+system = "custom"
+pristine_source = true
+commands = ["bash /port/install-runtime.sh \"$SOURCE_DIR\""]
+dependencies = []
+pre = []
+post = []
+threads = false
+
+[runtime]
+commands = ["php-runtime-info"]
+mode = "buffered"
+capability = "full"
+
+[tests]
+smoke = ["ash /usr/local/bin/php-runtime-info"]
