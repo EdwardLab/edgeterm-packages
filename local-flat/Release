@@ -1,0 +1,8 @@
+Origin: DigitalPlat
+Label: EdgeTerm Packages
+Suite: candidate
+Date: Mon, 07 Sep 2026 13:45:28 +0000
+Valid-Until: Mon, 21 Sep 2026 13:45:28 +0000
+Architectures: wasm32-wasix all
+SHA256:
+ 5f92074964c96b2bdee8832f03071619f0e61e5706b821ae71c6c2265f4dcef2 46639 Packages

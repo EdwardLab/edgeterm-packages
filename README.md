@@ -1,12 +1,20 @@
-# EdgeTerm APT Repository
+# EdgeTerm package repository
 
-This branch is reserved for generated, signed APT repository snapshots consumed by EdgeTerm.
+This branch contains 101 candidate packages and 75 packages in the stable suite.
+A port directory alone is not counted as a delivered package.
 
-Published snapshots contain only:
+Production URL: https://packages.digitalplat.org/
 
-- `dists/stable/` for packages that passed the full acceptance suite.
-- `dists/candidate/` for packages still undergoing browser validation.
-- `pool/` for immutable package artifacts.
-- The public repository signing key and publication metadata.
+- `dists/stable` contains packages that satisfy the current artifact acceptance gates.
+- `dists/candidate` contains the complete candidate catalog, including experimental capabilities.
+- `local-flat` is the signed browser transport for the candidate catalog.
+- `catalog.json` lists exact versions, artifact hashes, licenses, and pinned upstream source archives.
 
-Build recipes, source patches, tests, private signing material, and temporary acceptance artifacts do not belong on this branch. Release automation replaces the generated snapshot only after metadata and package signatures have been verified.
+EdgeTerm verifies the signed `InRelease`, the index hash, and every downloaded package.
+The signing public key fingerprint is `6165B5AE16F62EE3D31837905CECF54DFEE8CFBD`.
+Metadata expires after 14 days and must be refreshed by the signed publish job.
+
+Port sources, build scripts, and compatibility changes: https://github.com/EdwardLab/edgeterm-packages
+Runtime sources and patches: https://github.com/EdwardLab/EdgeTerm/tree/main/ports/apt-wasix
+
+Generated repository changes are published without rewriting branch history.

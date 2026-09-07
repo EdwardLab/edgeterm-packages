@@ -1,0 +1,980 @@
+Package: actionlint
+Version: 1.7.12-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 11132
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://rhysd.github.io/actionlint/
+Description: GitHub Actions workflow linter
+Filename: pool/stable/actionlint_1.7.12-1edgeterm1_wasm32-wasix.deb
+Size: 1928366
+MD5sum: 5747ad2c8c23116ec6c01837b974b6bc
+SHA1: 2f710df88c3256e3b066701c5da0d7b26053bac4
+SHA256: 57bfe624d80cc153664ad789f73be7321eae8fa1b6b51ee90d73e63376bf7cc3
+
+Package: bat
+Version: 0.26.1-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 4532
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/sharkdp/bat
+Description: Syntax-highlighting file viewer
+Filename: pool/stable/bat_0.26.1-1edgeterm1_wasm32-wasix.deb
+Size: 1891754
+MD5sum: a583dc670fb44396e9950e8cc0f5b13e
+SHA1: 2a3796bdfeddfaeadba8c987247bb1e910e061ea
+SHA256: 3079925d023836301563981e0628526194460a7c434ef4cd973e2b25ca49ec0a
+
+Package: bc
+Version: 1.08.2-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 414
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/bc/
+Description: Arbitrary precision calculator
+Filename: pool/stable/bc_1.08.2-1edgeterm1_wasm32-wasix.deb
+Size: 108932
+MD5sum: ba2cec43d3eb823f66b77ec7dc12d102
+SHA1: 67c69b1022f2e3fb892df463b8aae4809ba1c5ff
+SHA256: 32caa0a1a524e0197446d7fd67178c83ea1b6cb3fd10333e58d908662ce07968
+
+Package: brotli
+Version: 1.2.0-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 1869
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/google/brotli
+Description: Brotli compression utility
+Filename: pool/stable/brotli_1.2.0-1edgeterm2_wasm32-wasix.deb
+Size: 351332
+MD5sum: bda074185fa6db84ff319103fe4c114d
+SHA1: 5d02acecf7b6a56eeccdebbbfa1faa57a1cb4a8f
+SHA256: 679fb365decebb2a5b70b369c80874c5d118e755a429681efc708ef26993c096
+
+Package: byacc
+Version: 20241231-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 198
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://invisible-island.net/byacc/
+Description: Berkeley Yacc parser generator
+Filename: pool/stable/byacc_20241231-1edgeterm2_wasm32-wasix.deb
+Size: 65472
+MD5sum: 8b11596f31123f4c7756a2b23395204a
+SHA1: 095a97d0ed7ffdf603224473476f4551bf2df894
+SHA256: aaf1fdbcda788f1fe7704c236487a52ffc8d091cb8d69d18cb591e8bfc8aa28f
+
+Package: bzip2
+Version: 1.0.8-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 740
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://sourceware.org/bzip2/
+Description: bzip2 compression utility
+Filename: pool/stable/bzip2_1.0.8-1edgeterm2_wasm32-wasix.deb
+Size: 82674
+MD5sum: 0771dd89678555a488642d624fb99dfb
+SHA1: cd27f037a8f8be98bb528b5d1aa25a96f8c05492
+SHA256: df1522f55a6587d8c967ec67ca1926f3b7ed664de2ef6e679b3f69387ceda049
+
+Package: cflow
+Version: 1.8-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 661
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/cflow/
+Description: C source call graph generator
+Filename: pool/stable/cflow_1.8-1edgeterm2_wasm32-wasix.deb
+Size: 241396
+MD5sum: 5b7f6a3a073840d8b41e14b29b5712b3
+SHA1: 5997ce0beb4ed5f0e29bc82ee80fd964ca78af23
+SHA256: c5e2c2a9da386854418ae54ab7fbe25c18cb92b3930afc3763ba9f10ddc1154c
+
+Package: chibi-scheme
+Version: 0.12-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 4405
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://synthcode.com/wiki/chibi-scheme
+Description: Small Scheme implementation
+Filename: pool/stable/chibi-scheme_0.12-1edgeterm1_wasm32-wasix.deb
+Size: 833372
+MD5sum: 5b2d2beeaf743ae95931dc95a24e2973
+SHA1: 8f964c09f9d5b224c438347d2be8bd2eeea44ea9
+SHA256: c59315b73f41daadd9d5e67c9c51bcea20d34a2c99b007aef92c97a3ae69c5cc
+
+Package: choose
+Version: 1.3.7-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 1743
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/theryangeary/choose
+Description: Field and range selector
+Filename: pool/stable/choose_1.3.7-1edgeterm1_wasm32-wasix.deb
+Size: 413322
+MD5sum: a6ec6354b1419813f67d2257c696eb3c
+SHA1: 3a4a3737fe5b1a58e6da965a11851b13f5d91349
+SHA256: 536b0ec9e8cee992fa7f391a83b32414d7f431aea0666f3e4f979f06b56a70f3
+
+Package: cmark
+Version: 0.31.2-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 477
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/commonmark/cmark
+Description: CommonMark parser and renderer
+Filename: pool/stable/cmark_0.31.2-1edgeterm1_wasm32-wasix.deb
+Size: 120510
+MD5sum: c3a993cd321d83d4d5952eb2caa324e5
+SHA1: e75e24056eb655aa86514632cbfd7ff3df1cc38d
+SHA256: 273fecd3c068aca44cc31cbdea8f699c5991bedd0f83605d2954f056e1c00fda
+
+Package: coreutils
+Version: 9.11-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 19159
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/coreutils/
+Description: GNU core utilities
+Filename: pool/stable/coreutils_9.11-1edgeterm2_wasm32-wasix.deb
+Size: 1906742
+MD5sum: 45c880ce5ddce2b0bb37559351cd6fae
+SHA1: 2aa3201566445ff8199ec52a29270ffa18f3be5f
+SHA256: 297acdcf3682abc869ad3ff1771f9f14e12e8719fec6fc5703680e3f6ad8fad9
+
+Package: cpio
+Version: 2.15-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 348
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/cpio/
+Description: GNU cpio archive utility
+Filename: pool/stable/cpio_2.15-1edgeterm1_wasm32-wasix.deb
+Size: 124428
+MD5sum: 5b23ed1f89484ff3f4582196f892ecc4
+SHA1: 4cf7b33d8d678659f37fdeb14cb422b95e74dfdd
+SHA256: 10cf0fe13c4c6e582005e2d9d62d158dfd6623370d8c52715f76a531ddecc474
+
+Package: dash
+Version: 0.5.13.5-2edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 767
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: http://gondor.apana.org.au/~herbert/dash/
+Description: POSIX command shell
+Filename: pool/stable/dash_0.5.13.5-2edgeterm1_wasm32-wasix.deb
+Size: 242648
+MD5sum: 86320fe4801c9e90f1dec3de0bb31920
+SHA1: 544e4444039c0db33e8c20280bb59444f33ed134
+SHA256: 2d1e5373ee8c9f6ec3d24cc1b5cf307f07253bb51bbae3ab44e18d93847b6abc
+
+Package: datamash
+Version: 1.9-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 2568
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/datamash/
+Description: Command-line statistical and data calculation tool
+Filename: pool/stable/datamash_1.9-1edgeterm2_wasm32-wasix.deb
+Size: 351312
+MD5sum: 726c332486b68878db278d53151a60ba
+SHA1: ae7c9810db2ee8c670da3b79d7caa61f89c2919c
+SHA256: 8a7ccd7ed76771ae7cd213fee3f8329da5f07d09b9395c1047ee52733606927f
+
+Package: dialog
+Version: 1.3-20250116-1edgeterm1
+Architecture: wasm32-wasix
+Depends: ncurses
+Installed-Size: 1841
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://invisible-island.net/dialog/
+Description: Terminal dialog and menu utility
+Filename: pool/stable/dialog_1.3-20250116-1edgeterm1_wasm32-wasix.deb
+Size: 590362
+MD5sum: 50cb511e9facf3037984a9f6cc7ac125
+SHA1: 4000ddc642236d0a63c2cdf55b7800758acd4a29
+SHA256: 871a6d76a37deb4f1d10a754a9f1fadd8cf4af865cae0d6c031c6509239ede3e
+
+Package: diffutils
+Version: 3.12-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 983
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/diffutils/
+Description: GNU file comparison utilities
+Filename: pool/stable/diffutils_3.12-1edgeterm1_wasm32-wasix.deb
+Size: 216090
+MD5sum: 8cce0effd11ff05a87b307abbab2d14c
+SHA1: aa74b384ed98bec0d8c8a1780dd2542337f9a0d7
+SHA256: cb7fb8ae6803fa96815bfea69f6980dda57705425e8a84775eb8edf58daab363
+
+Package: dos2unix
+Version: 7.5.6-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 851
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://waterlan.home.xs4all.nl/dos2unix.html
+Description: Text file line ending converter
+Filename: pool/stable/dos2unix_7.5.6-1edgeterm1_wasm32-wasix.deb
+Size: 94368
+MD5sum: a80e7450daf5ebbfbd284e98203f60f3
+SHA1: 5c871ff5aec95c1570c87b6dbfb3fc25201e3944
+SHA256: b108bc2be1e2ff10884bd26488f351ee2f8ef07cf8eb8b475d06a45b1c7b6ecb
+
+Package: ed
+Version: 1.22.5-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 557
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/ed/
+Description: Line-oriented text editor
+Filename: pool/stable/ed_1.22.5-1edgeterm1_wasm32-wasix.deb
+Size: 187614
+MD5sum: 4425d0eafdde3b9deceef46f5ca38426
+SHA1: ce31f2ddca58b3d36089c27ed3bd6f78efe1be40
+SHA256: a61f77a7a4595b11ff509abbe37647b2fc1db67a4775ace993575ac6c0724dba
+
+Package: expat
+Version: 2.7.1-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 622
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://libexpat.github.io/
+Description: Streaming XML parser and xmlwf utility
+Filename: pool/stable/expat_2.7.1-1edgeterm1_wasm32-wasix.deb
+Size: 155524
+MD5sum: 45296cc5b99fc5af2a63c4af52b060c2
+SHA1: f97c0a5001c264ef229f414a65880f20ce551541
+SHA256: 5719dfcb2a91622b30f8c1b9b438966c3be55940e0880041d6386cfd80f4292a
+
+Package: fennel
+Version: 1.6.1-1edgeterm1
+Architecture: wasm32-wasix
+Depends: lua
+Installed-Size: 464
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://fennel-lang.org/
+Description: Lisp programming language that runs on Lua
+Filename: pool/stable/fennel_1.6.1-1edgeterm1_wasm32-wasix.deb
+Size: 110708
+MD5sum: 0c7ba44cf18ff0328190e322e52f4ee6
+SHA1: 97b57e4264791b8464802fbabb1d6f74dbb3901b
+SHA256: cb6466dff935ad1eb7042cd0793025a32a078bd351d9ddd168ca102fecaf3533
+
+Package: file
+Version: 5.48-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 11182
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.darwinsys.com/file/
+Description: File type identification utility
+Filename: pool/stable/file_5.48-1edgeterm1_wasm32-wasix.deb
+Size: 535368
+MD5sum: 881f6c22f157a0da6414b24edab974ee
+SHA1: 73b41499ae1ef35294950e480e97c2019a9e3197
+SHA256: a4656fc1833d704633c26fcfb69b42cb8a2195570bae418f1762324f75cf2574
+
+Package: findutils
+Version: 4.11.0-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 1802
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/findutils/
+Description: GNU file search utilities
+Filename: pool/stable/findutils_4.11.0-1edgeterm2_wasm32-wasix.deb
+Size: 349190
+MD5sum: 4303caebe3b3ec97104de9d90b873412
+SHA1: e905cb1cd24ebb4f20adeff8d3caaceefec55ce5
+SHA256: 68ada37fae65b1668a90cb7a1e2863f23f8a8857cb23ff839dcf6e9e64ee770e
+
+Package: flex
+Version: 2.6.4-1edgeterm5
+Architecture: wasm32-wasix
+Depends: m4
+Installed-Size: 1491
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/westes/flex
+Description: Fast lexical analyzer generator
+Filename: pool/stable/flex_2.6.4-1edgeterm5_wasm32-wasix.deb
+Size: 426084
+MD5sum: 525db55b061878224dedb5a99459770c
+SHA1: 142ee070f070b8a6f85377681ef52a20023b254a
+SHA256: f5b45de8b910cc7f2a45ad2189d4003cfe07a87b90e347342716dbca603b7bfe
+
+Package: gawk
+Version: 5.4.1-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 5385
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/gawk/
+Description: GNU AWK implementation
+Filename: pool/stable/gawk_5.4.1-1edgeterm1_wasm32-wasix.deb
+Size: 981160
+MD5sum: 3704291d230771a40b9562bb5a029cc3
+SHA1: 67706b3cb520576d77b460b998fec40b17c9f041
+SHA256: 4923f2388b8720d2878e57505619e4f801b9aea8779b085934933c2e868a2371
+
+Package: gettext
+Version: 1.0-1edgeterm4
+Architecture: wasm32-wasix
+Installed-Size: 41923
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/gettext/
+Description: GNU internationalization utilities
+Filename: pool/stable/gettext_1.0-1edgeterm4_wasm32-wasix.deb
+Size: 5698634
+MD5sum: 1a62e2c246ae2ec60ecaa8678bd28597
+SHA1: 296d083a56e31cfedec0288c37bdc54a30a5f640
+SHA256: ed87479ea08d39bef227c32cbf0330ccb1f9df071b5164f1868a1995f12be429
+
+Package: git
+Version: 2.55.0-1edgeterm4
+Architecture: wasm32-wasix
+Installed-Size: 15201
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://git-scm.com/
+Description: Distributed version control system
+Filename: pool/stable/git_2.55.0-1edgeterm4_wasm32-wasix.deb
+Size: 1803836
+MD5sum: 6a3fa83eee490c4add68dc2fa6c952a3
+SHA1: 053f8f5b7a32e2a897875df22ee2204d2c803d7d
+SHA256: 43dc64dda9f70920c391eac9ee761c36770969ba436a2e68405a009974a56998
+
+Package: gojq
+Version: 0.12.19-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 7500
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/itchyny/gojq
+Description: Pure Go jq implementation
+Filename: pool/stable/gojq_0.12.19-1edgeterm1_wasm32-wasix.deb
+Size: 1471580
+MD5sum: 15cac3ea3faafc410bc976afdf530dea
+SHA1: 69dfe27f63be833bcdc18e6a14e2096e10f05541
+SHA256: d144a45afc03af10ac6dc4c7c6fed96585f34ffc9b0e91a625f682d6faa0a251
+
+Package: gperf
+Version: 3.3-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 434
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/gperf/
+Description: Perfect hash function generator
+Filename: pool/stable/gperf_3.3-1edgeterm1_wasm32-wasix.deb
+Size: 120462
+MD5sum: f3514042f0b45b50e39bad06ccb4e6ac
+SHA1: 312b9d199b06dcae03d4b866238608646853ef9a
+SHA256: 4998c0a5bb4c232659095683f3d92541189fea283a21634dcbb734f91a99fa11
+
+Package: grep
+Version: 3.12-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 553
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/grep/
+Description: GNU pattern matching utility
+Filename: pool/stable/grep_3.12-1edgeterm2_wasm32-wasix.deb
+Size: 169554
+MD5sum: b020427176d31c6e6513d043c9f8dc9b
+SHA1: 2e32b5f8f8ee4c244efc7c93b2af0f7bb5c496ad
+SHA256: 19c2d748fc7987481e30b76c9f40f85689c195ab371eb1d9b705d810659d90b8
+
+Package: gzip
+Version: 1.14-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 782
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/gzip/
+Description: GNU gzip compression utility
+Filename: pool/stable/gzip_1.14-1edgeterm2_wasm32-wasix.deb
+Size: 121694
+MD5sum: ee85b5bfc74ae9a737047211d0068951
+SHA1: 488371afe0b883038a8bef4881d78965794054de
+SHA256: 54237320e2946f0df7a55f2e293dcc7ef45c2425d72f464378ffaa8914c7601b
+
+Package: hexedit
+Version: 1.6-1edgeterm1
+Architecture: wasm32-wasix
+Depends: ncurses
+Installed-Size: 748
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/pixel/hexedit
+Description: Interactive hexadecimal file editor
+Filename: pool/stable/hexedit_1.6-1edgeterm1_wasm32-wasix.deb
+Size: 247834
+MD5sum: df34edb7dec6d22a102a5b2769fc02fb
+SHA1: 01d41d1c0c3f1b92eeb59ead0b0e699e956f5c8c
+SHA256: b152ea00a77734a26c84d90e985e9d61d7a59b4d62cb96997016516183abf623
+
+Package: hexyl
+Version: 0.17.0-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 783
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/sharkdp/hexyl
+Description: Hex viewer for the terminal
+Filename: pool/stable/hexyl_0.17.0-1edgeterm1_wasm32-wasix.deb
+Size: 208658
+MD5sum: 38b39743645b1c0fcc06ce8e41cc949c
+SHA1: bf7825d466ec3be88396bf2946fd521f55a921ad
+SHA256: c2de8aea6ba505b5e93af30fc5b24a27107bdbe7fe9da01cc7ef907172082962
+
+Package: htmlq
+Version: 0.4.0-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 1609
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/mgdm/htmlq
+Description: HTML query utility
+Filename: pool/stable/htmlq_0.4.0-1edgeterm1_wasm32-wasix.deb
+Size: 448862
+MD5sum: 8ae055a29d8e413d07045c155ea0247b
+SHA1: 773b4ee897cf33dd06808d37146df3b0efcfda9e
+SHA256: 1caf79170eb02354ffd4f12cd43b7e6a1f378d16aab2c17a5e9114ab9058d421
+
+Package: indent
+Version: 2.2.13-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 159
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/indent/
+Description: C source code formatter
+Filename: pool/stable/indent_2.2.13-1edgeterm1_wasm32-wasix.deb
+Size: 68802
+MD5sum: 669fa314231a781c0120c595bfa12d6c
+SHA1: 91462580becfab522266bf4ba020311565c14bf2
+SHA256: 00f65ffe0010169d8d212079761475d220ff0c0700cb34f79ca8440dc18f885f
+
+Package: jq
+Version: 1.8.2-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 2617
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://jqlang.org/
+Description: Command-line JSON processor
+Filename: pool/stable/jq_1.8.2-1edgeterm2_wasm32-wasix.deb
+Size: 537732
+MD5sum: 448ea00b1e92f0deadb69093a32600fe
+SHA1: 4bcc023468a2e54705dc884edbbb655b061810de
+SHA256: 0cb58306cce872828e4f40182cb062822424ae017a2bad7cf09cd6b11c469864
+
+Package: less
+Version: 708-1edgeterm1
+Architecture: wasm32-wasix
+Depends: ncurses
+Installed-Size: 1285
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.greenwoodsoftware.com/less/
+Description: Terminal pager
+Filename: pool/stable/less_708-1edgeterm1_wasm32-wasix.deb
+Size: 373896
+MD5sum: add3779f87cac8bda358035fd8731800
+SHA1: 76cdbf9db0b1674e5547131c622bd64502c1d3ee
+SHA256: 2ead160446e70e581b8b517b41d486ad33b7ecf54e372b3cd47649bf2893cd6c
+
+Package: libarchive
+Version: 3.8.1-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 3427
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.libarchive.org/
+Description: Multi-format archive tools
+Filename: pool/stable/libarchive_3.8.1-1edgeterm1_wasm32-wasix.deb
+Size: 575004
+MD5sum: 9eec550d3e7966826221e776f4626849
+SHA1: fd20274871673b2a4bac26bf0d051544eacd7a00
+SHA256: f59f640fc1dd63d7c8c69bb3bd656738f9a4f7a74c0585b43cdc82abf5c56af8
+
+Package: libdeflate
+Version: 1.24-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 254
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/ebiggers/libdeflate
+Description: Fast DEFLATE compression and decompression tools
+Filename: pool/stable/libdeflate_1.24-1edgeterm1_wasm32-wasix.deb
+Size: 73706
+MD5sum: 77c58f6f293b36a6c661216dbdd0be56
+SHA1: 37db692d3c8a7ce00de1309fe5c718b1f3aeed69
+SHA256: fda7de71dbf8c52a2aae2ee59322f5ee42b8d0a4a36e715dde6b627e01f89784
+
+Package: lua
+Version: 5.5.0-1edgeterm3
+Architecture: wasm32-wasix
+Installed-Size: 2464
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.lua.org/
+Description: Lua programming language
+Filename: pool/stable/lua_5.5.0-1edgeterm3_wasm32-wasix.deb
+Size: 532244
+MD5sum: 14308787b1ba53dc31c55551bb9d1b0a
+SHA1: 8601fa3e9f6222a6bdd89617c2c07f83cf44b277
+SHA256: 391a70c88997729d605fea596c848356c31b03a78c3b46e38f8cb6426ae27f5f
+
+Package: lz4
+Version: 1.10.0-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 775
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://lz4.org/
+Description: LZ4 compression utility
+Filename: pool/stable/lz4_1.10.0-1edgeterm2_wasm32-wasix.deb
+Size: 83020
+MD5sum: 62f904f1141fc9c70f20ee6d85196fcf
+SHA1: c87709749f237e25a5e0a5d5548cbd8bd56e6919
+SHA256: a7706ab93e1997d6733c61f3196b7216006e93d82144720f1aeb8a2ebd90dff7
+
+Package: lzip
+Version: 1.25-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 289
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.nongnu.org/lzip/
+Description: Lossless data compressor based on the LZMA algorithm
+Filename: pool/stable/lzip_1.25-1edgeterm1_wasm32-wasix.deb
+Size: 99544
+MD5sum: 3a19f5783e4e524f49adcbc602893894
+SHA1: 9de4e0b5006f8d9afed16b20db421e9201307fc0
+SHA256: 079aec564dc57772f40efc487f7fd8f8191c21bd0edd615c06be78d2569eb468
+
+Package: make
+Version: 4.4.1-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 1008
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/make/
+Description: GNU build automation utility
+Filename: pool/stable/make_4.4.1-1edgeterm2_wasm32-wasix.deb
+Size: 285222
+MD5sum: 15e90bf4486443914c2cfa3370135928
+SHA1: 0fe4116eda0fae1191c118d8dc5d9b1dd2a139b2
+SHA256: ac5c44100942d5e0aeb8a2f1332fb200c07bf6ce62b3eb203d74f06a917da9e5
+
+Package: mawk
+Version: 1.3.4-20250131-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 788
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://invisible-island.net/mawk/
+Description: Fast pattern scanning and text processing language
+Filename: pool/stable/mawk_1.3.4-20250131-1edgeterm1_wasm32-wasix.deb
+Size: 265058
+MD5sum: f716479d11f00d1483804e7a5874fba2
+SHA1: f85f23d365765268ea5a54c35aee949a2ad309e1
+SHA256: 96fc1c39d6e80b6b6eca00538e1c4fc060b94e306fcea64305b7d502d423f95c
+
+Package: mujs
+Version: 1.3.7-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 1657
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://mujs.com/
+Description: Small embeddable JavaScript interpreter
+Filename: pool/stable/mujs_1.3.7-1edgeterm1_wasm32-wasix.deb
+Size: 476518
+MD5sum: cedb0d6da4966939128661d3bd23f750
+SHA1: ad0fafd3ed4e62b5a51a88005973d07513b4b753
+SHA256: c1f9523a8ba8a70d6acfd4b735a1e86fdf3754041aa8d803ddf455edf09ebccd
+
+Package: nano
+Version: 9.2-1edgeterm1
+Architecture: wasm32-wasix
+Depends: ncurses
+Installed-Size: 4535
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.nano-editor.org/
+Description: Terminal text editor
+Filename: pool/stable/nano_9.2-1edgeterm1_wasm32-wasix.deb
+Size: 716434
+MD5sum: 138ebd86129f5a0d5b1818495556ab67
+SHA1: 62fa6cb7ce355062d926c0998119bef4ff5daaf0
+SHA256: cdc876b25ee5584bdb802020370b51020f91432182c354c4053e2c704112c3f9
+
+Package: ncompress
+Version: 5.0-1edgeterm3
+Architecture: wasm32-wasix
+Installed-Size: 100
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/vapier/ncompress
+Description: Classic compress utility
+Filename: pool/stable/ncompress_5.0-1edgeterm3_wasm32-wasix.deb
+Size: 38728
+MD5sum: a4d77974886475c0c78b0d5821ec0292
+SHA1: 8024a7ca081ff467328d84aab57f969176149b81
+SHA256: 0830f29e8bcbd43c80c33b1b2fe4a9f881073000d5775552380bda68d3be3a1b
+
+Package: ncurses
+Version: 6.6-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 6060
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://invisible-island.net/ncurses/
+Description: Terminal control library and utilities
+Filename: pool/stable/ncurses_6.6-1edgeterm1_wasm32-wasix.deb
+Size: 1502638
+MD5sum: 925a502b79831c845f167c47762c5285
+SHA1: 66becb1c2816e2a6f7285bba5f8efeb29dc3df25
+SHA256: 5049cbf23502ed71c269df2e54889d41519fac7adf1280291113b147f82644d0
+
+Package: ninja-build
+Version: 1.13.2-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 702
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://ninja-build.org/
+Description: Small high-speed build system
+Filename: pool/stable/ninja-build_1.13.2-1edgeterm1_wasm32-wasix.deb
+Size: 179642
+MD5sum: c67522c27ae64a80a6bdb2b85babe0d4
+SHA1: 3b18f806dc19f8824b45775abebbfca2cc9392bb
+SHA256: d7c864ec7c10af7b8c4668ce52d9db3daa1d7b9bd2303d416c8011724749213a
+
+Package: openssl
+Version: 3.6.3-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 12927
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.openssl.org/
+Description: TLS and cryptography toolkit
+Filename: pool/stable/openssl_3.6.3-1edgeterm1_wasm32-wasix.deb
+Size: 3029552
+MD5sum: c08bd6553bce1a79e8252818bd0308f3
+SHA1: 468bf1ee103bccd50d63e4602c82250ba4423ede
+SHA256: e9100c7307c1cb651e8d45f30b84a487ac7cccc6f6c7748e73ef379744895587
+
+Package: pastel
+Version: 0.12.0-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 708
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/sharkdp/pastel
+Description: Color manipulation utility
+Filename: pool/stable/pastel_0.12.0-1edgeterm1_wasm32-wasix.deb
+Size: 206174
+MD5sum: bd213be3a2ff4a00e8236c300972a3e1
+SHA1: e57c65dc7cd5e7568662bcea62dfc805fe169c8c
+SHA256: 338a56379ec9a0c4801411261f14f31b85ec02ceba56ea0b9899db6af3929da2
+
+Package: patch
+Version: 2.8-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 291
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/patch/
+Description: Apply patch files
+Filename: pool/stable/patch_2.8-1edgeterm2_wasm32-wasix.deb
+Size: 116746
+MD5sum: be1b03e99f508ac053c18a3cba9a4d88
+SHA1: d50b35efd8c73bcccab086de7c40868564815461
+SHA256: ad52dca4ec1691ec93ccd630d9c53d3c4acd499bc26e84a203d708add8b9d1a0
+
+Package: pcre2
+Version: 10.46-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 3809
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.pcre.org/
+Description: Perl-compatible regular expression tools
+Filename: pool/stable/pcre2_10.46-1edgeterm1_wasm32-wasix.deb
+Size: 575792
+MD5sum: 39f0d69fe3cbb957d1ba3a39de951551
+SHA1: d3324c9e88cb7cb9fd2d276948e37bc02304b966
+SHA256: ee1d4e3988662f7f99b804784af416886a383c37bfdcce776e36bee37cd4f80b
+
+Package: php
+Version: 8.4.23-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 24559
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/WordPress/wordpress-playground
+Description: PHP 8.4 browser runtime for EdgeTerm
+Filename: pool/stable/php_8.4.23-1edgeterm2_wasm32-wasix.deb
+Size: 7103518
+MD5sum: 05f81f153eeaa1167e2a08cae01843b4
+SHA1: 12b49d35beceefc45fd2e487ce8105929bff479f
+SHA256: ab04f5fe995bb58e9428ec85bda993b729c9e647f8f00a1937748ddec84fc21e
+
+Package: pkgconf
+Version: 3.0.5-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 1143
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://gitea.treehouse.systems/ariadne/pkgconf
+Description: Package compiler and linker metadata tool
+Filename: pool/stable/pkgconf_3.0.5-1edgeterm1_wasm32-wasix.deb
+Size: 166148
+MD5sum: 13d785fa1a4bcf282b03d96ff3b10c0e
+SHA1: bcf538d9f3e8e57df57f98c7408c895a34b6b846
+SHA256: 9bcdb246f940a59b56a20569680dabc263704dcde5ce4c035e25cdd6d4f058e2
+
+Package: pv
+Version: 1.11.0-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 391
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.ivarch.com/programs/pv.shtml
+Description: Pipe progress monitor
+Filename: pool/stable/pv_1.11.0-1edgeterm1_wasm32-wasix.deb
+Size: 134930
+MD5sum: db45e8bd06e3d8e884472290c88044c0
+SHA1: 97303af6b39dc19c097636b66a2607cbd0868353
+SHA256: 885eeb61f2cbe4139806ef7c0c0b4498bc5ff0fcb4d08c0a31f83bae3b258882
+
+Package: re2c
+Version: 4.3-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 1371
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://re2c.org/
+Description: Lexer generator for C and C++
+Filename: pool/stable/re2c_4.3-1edgeterm1_wasm32-wasix.deb
+Size: 278750
+MD5sum: bb83772cbb9f66bb8da07e33a3761351
+SHA1: 6972804e563d9fc222789da64db97f077e36d571
+SHA256: 50c66631ef3407dcb321dd250af5dd2eac8c944e25c72079abd58d26761365e9
+
+Package: ripgrep
+Version: 15.2.0-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 21496
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/BurntSushi/ripgrep
+Description: Recursive regular expression search
+Filename: pool/stable/ripgrep_15.2.0-1edgeterm1_wasm32-wasix.deb
+Size: 3756734
+MD5sum: b178b52230eb99d434cc7e99ff9d2884
+SHA1: d9a9b8bb81421c5cebfa7b142991e72af92b9b0d
+SHA256: 421c29b761e619f8e69b4f1cf5a7f299a80c593a2b8e5d7eaaaf7a880d506cc8
+
+Package: ruplacer
+Version: 0.10.0-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 2165
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/your-tools/ruplacer
+Description: Recursive search and replace utility
+Filename: pool/stable/ruplacer_0.10.0-1edgeterm1_wasm32-wasix.deb
+Size: 490546
+MD5sum: 95cfa2f49f7de1bd72d36a38e59e081f
+SHA1: 5e33d42bbd22541bdb81c7d17f4cbac05afb4dcb
+SHA256: 6659a4149ea8794b43060a429f7fd6420be7f25dc27b72dbe769d808ac33e85d
+
+Package: sd
+Version: 1.1.0-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 1511
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/chmln/sd
+Description: Find and replace utility
+Filename: pool/stable/sd_1.1.0-1edgeterm1_wasm32-wasix.deb
+Size: 386844
+MD5sum: 714ba21f670081ee605d15a6dabfadb3
+SHA1: d91ff5ebaa809889b699b9dba65fa0ba65df7e3a
+SHA256: 52e3dddd3b487417919dccb22db4beddafadbf2f13e16a788e2d2e8cebcf0348
+
+Package: sed
+Version: 4.10-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 561
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/sed/
+Description: GNU stream editor
+Filename: pool/stable/sed_4.10-1edgeterm1_wasm32-wasix.deb
+Size: 168112
+MD5sum: 6a7e075dd4828e3312e120e1a36017af
+SHA1: 272f1c20bf78948b61b9d85a938227623f0436b4
+SHA256: 2da79311cf80f9b0536aa334bc85fc6e3558da2649f27ea03890053e91e213a9
+
+Package: shfmt
+Version: 3.13.1-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 5376
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/mvdan/sh
+Description: Shell parser and formatter
+Filename: pool/stable/shfmt_3.13.1-1edgeterm1_wasm32-wasix.deb
+Size: 1152878
+MD5sum: c0779e4c446917a43f7d900833e11e4c
+SHA1: 08f914fdad3ca87298de962589588577e21a50ac
+SHA256: 6efcc65babf5a061b4e78907c9b3bc310ec8b7a03a1b21d7a711f91fd27c33f3
+
+Package: sqlite3
+Version: 3.53.4-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 4023
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.sqlite.org/
+Description: SQLite command-line database
+Filename: pool/stable/sqlite3_3.53.4-1edgeterm1_wasm32-wasix.deb
+Size: 1004964
+MD5sum: 0bd6f6f04843f2ffa4e94050c69c05a2
+SHA1: 859cb0006f04fa154e2612696be17ff04ad09a8b
+SHA256: 6de6c2937b7e0a24321c80d8f1f34897a5fe0a6b6ec55f3645bf8178a9289951
+
+Package: squirrel
+Version: 3.2-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 1163
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.squirrel-lang.org/
+Description: Squirrel programming language
+Filename: pool/stable/squirrel_3.2-1edgeterm1_wasm32-wasix.deb
+Size: 336258
+MD5sum: b1459fde7a0330b2fe633aecf1f2e6c7
+SHA1: 2ac06bd96f4202a112a3aeb2c134cd398059c9af
+SHA256: 3011a55338f89ded0c7ab16144a4fda0c6330693ec71b4958e5005823c38d2a3
+
+Package: tar
+Version: 1.35-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 1512
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.gnu.org/software/tar/
+Description: GNU archive utility
+Filename: pool/stable/tar_1.35-1edgeterm2_wasm32-wasix.deb
+Size: 518460
+MD5sum: b46b9f659b4353e5b6737b6f870a6b21
+SHA1: 3d84c0c2b97fcd227c66c0e82e80aa18434c7210
+SHA256: 215f31df14fb67848ac4f9f6d70c6a4e2331a1108f4526e9c658ae6d2f520140
+
+Package: tcl
+Version: 9.0.4-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 20962
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://www.tcl-lang.org/
+Description: Tcl scripting language
+Filename: pool/stable/tcl_9.0.4-1edgeterm1_wasm32-wasix.deb
+Size: 3350136
+MD5sum: 387dead74624bced11b120a0afe8f052
+SHA1: 0e8e960170639ab2eba46f1999f408d30b423e57
+SHA256: c03419370359098b4e3991e6ac27d336e12e85c0984106b6921d617e35e5b2f8
+
+Package: tree
+Version: 2.3.2-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 171
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://oldmanprogrammer.net/source.php?dir=projects/tree
+Description: Recursive directory listing utility
+Filename: pool/stable/tree_2.3.2-1edgeterm1_wasm32-wasix.deb
+Size: 69916
+MD5sum: cfd440ac372dd10b3c04e8c884d2e4d0
+SHA1: 254b693c7b32b5aa08c4e0fc2b725ca120cd98ef
+SHA256: 17bda3ba7c4a2251ea8fcecf0a59f15b6482026cd09108cb3ee2378f1745d1bc
+
+Package: uncrustify
+Version: 0.81.0-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 2164
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/uncrustify/uncrustify
+Description: Source code formatter for multiple programming languages
+Filename: pool/stable/uncrustify_0.81.0-1edgeterm1_wasm32-wasix.deb
+Size: 456610
+MD5sum: b73d60548676d87f47ce5ec7aaef48d0
+SHA1: ecfaac0a5b310570b08e0a87ae40673f377bc5ce
+SHA256: 5544061448ee747f6d846481851fdfd58aaf75dab741a744e22f1dfb599757f6
+
+Package: universal-ctags
+Version: 6.2.0-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 7765
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://ctags.io/
+Description: Source code indexing tool
+Filename: pool/stable/universal-ctags_6.2.0-1edgeterm2_wasm32-wasix.deb
+Size: 1704090
+MD5sum: 78acdfdd9e587458ecf6a6e080550951
+SHA1: a307ba9d477102ce35b17e5ea086ad388e7a27fc
+SHA256: 79839d2d4307a69ada1af0fbdaa7ff5308a5dc0eff0890e56dd22616bed82185
+
+Package: unzip
+Version: 6.0-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 625
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://infozip.sourceforge.net/
+Description: Info-ZIP archive extractor
+Filename: pool/stable/unzip_6.0-1edgeterm2_wasm32-wasix.deb
+Size: 136860
+MD5sum: 8537cbc48a3c0ccb30816fd6d244fc78
+SHA1: b286d6d923ba5f766fbc8e40bc1d5d02c7e8929e
+SHA256: 23e890fd6e975a3424e34b5e248b1d37d87e9101bdaf36a625bb0e958566923d
+
+Package: wabt
+Version: 1.0.41-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 15751
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/WebAssembly/wabt
+Description: WebAssembly Binary Toolkit
+Filename: pool/stable/wabt_1.0.41-1edgeterm1_wasm32-wasix.deb
+Size: 790278
+MD5sum: 3704f9dab3af53bc2cd15667da5d839d
+SHA1: 788c81402869934cd957a4e2c9c3c41f056e2601
+SHA256: 60349101edea40b8c39e5370cba88ffeecc63834c11d671e61e5d084d2bbc5e0
+
+Package: xxhash
+Version: 0.8.3-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 666
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://xxhash.com/
+Description: xxHash checksum utility
+Filename: pool/stable/xxhash_0.8.3-1edgeterm1_wasm32-wasix.deb
+Size: 56936
+MD5sum: 36472c1d4d20043b819cd2e20d2850c5
+SHA1: 68b6bfea1d981d217f7ea6394e5803cdf74afdde
+SHA256: 7851d85a7cb1a55744ef12f0dfe7731b2eb4d9a3129636660631f478fbccf381
+
+Package: xz-utils
+Version: 5.8.3-1edgeterm2
+Architecture: wasm32-wasix
+Installed-Size: 3463
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://tukaani.org/xz/
+Description: XZ compression utilities
+Filename: pool/stable/xz-utils_5.8.3-1edgeterm2_wasm32-wasix.deb
+Size: 293928
+MD5sum: ab37fdcb0578da64e8fbd59103a33e0c
+SHA1: bdcf48a72b0d281ea3cb0a84c2c6e2958e51facd
+SHA256: 1be490e3c99ebbb4ef6bed553afc3f69e32e909d7ef8f8238eaa79b948dfe795
+
+Package: yq
+Version: 4.53.3-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 24807
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://mikefarah.gitbook.io/yq/
+Description: Command-line YAML processor
+Filename: pool/stable/yq_4.53.3-1edgeterm1_wasm32-wasix.deb
+Size: 4470888
+MD5sum: 1da3232608d560f9cf8858f042523ad0
+SHA1: 1091cd682773a54b3f62ab70aad8e3b5e3bb04b6
+SHA256: 5125525cccc6cc4e877ceb92d551e7bc743130b3c87e18f7d57fb1ea430ff64f
+
+Package: zoxide
+Version: 0.10.0-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 641
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://github.com/ajeetdsouza/zoxide
+Description: Smarter directory navigation
+Filename: pool/stable/zoxide_0.10.0-1edgeterm1_wasm32-wasix.deb
+Size: 199338
+MD5sum: dcdec64ffd31770e59abda1e50a7f77d
+SHA1: 2a26769de6c60b96aa32fbc819c5032749ef6621
+SHA256: dc0e5419567e882c2cb3b4177941f47f7aef77667c8f50cc5877616fdcadcff9
+
+Package: zstd
+Version: 1.5.7-1edgeterm1
+Architecture: wasm32-wasix
+Installed-Size: 2405
+Maintainer: DigitalPlat <packages@digitalplat.org>
+Homepage: https://facebook.github.io/zstd/
+Description: Zstandard compression utility
+Filename: pool/stable/zstd_1.5.7-1edgeterm1_wasm32-wasix.deb
+Size: 211814
+MD5sum: d5315f2a656063ab7e3f4fae97839db2
+SHA1: 22bb8bfdc97ce3f8010e54a6657b41ff968eeec3
+SHA256: 5a021b70dc5b1c16dc928f79faf3c43672a68fefc2683409179de9971dd9b714
