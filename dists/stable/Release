@@ -2,11 +2,11 @@ Origin: DigitalPlat
 Label: EdgeTerm Packages
 Suite: stable
 Codename: stable
-Date: Mon, 07 Sep 2026 14:23:32 +0000
+Date: Mon, 07 Sep 2026 15:15:43 +0000
 Architectures: wasm32-wasix
 Components: main
 Description: Optional third-party packages for EdgeTerm
-Valid-Until: Mon, 21 Sep 2026 14:23:32 +0000
+Valid-Until: Sat, 06 Mar 2027 15:15:43 +0000
 SHA256:
  7e6d9e22a4c44c75e8d30cca4cd90d60df36201cd557f617ac5837848c2bf81f            34938 main/binary-wasm32-wasix/Packages
  8b26295f80694d56311f0ce3c6d28a7ef3a720350cfc756acd51002327224edd            10100 main/binary-wasm32-wasix/Packages.xz

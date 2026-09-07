@@ -5,19 +5,19 @@ Origin: DigitalPlat
 Label: EdgeTerm Packages
 Suite: candidate
 Codename: candidate
-Date: Mon, 07 Sep 2026 13:45:28 +0000
+Date: Mon, 07 Sep 2026 15:15:42 +0000
 Architectures: wasm32-wasix
 Components: main
 Description: Optional third-party packages for EdgeTerm
-Valid-Until: Mon, 21 Sep 2026 13:45:28 +0000
+Valid-Until: Sat, 06 Mar 2027 15:15:42 +0000
 SHA256:
  3200af356ef53dba7dd753c47ec1ea2382bfca80d39777c242f0ddcfa3a5998e            47346 main/binary-wasm32-wasix/Packages
  6047f6918dc2d2c936e27e503f54151e5c4bcda01cd9045947296847e685dd78            13324 main/binary-wasm32-wasix/Packages.xz
 -----BEGIN PGP SIGNATURE-----
 
-iJEEARYIADkWIQRhZbWuFvYu49MYN5Bc7PVN/ujPvQUCap6/+BsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwwLDMACgkQXOz1Tf7oz70oswD/b8CQmW+iZMrNCapYMkJ4
-BdbyAtFJjfefmAaTVNex0p8A/1g4C04HMLHc6sXrDzxTpPWiIrLlsNLyR6aujb1W
-KhID
-=2Hq2
+iJEEARYIADkWIQRhZbWuFvYu49MYN5Bc7PVN/ujPvQUCap7VHhsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwwLDMACgkQXOz1Tf7oz73/pQD/XtYE5xZzKVW2YrcKM7sh
+rv71CB95KaKHXmofKK3fSsoA/2730Hi4+u/rehp2vWONqOuupMECwfnfsLvhKV1Q
+jhsL
+=0UDJ
 -----END PGP SIGNATURE-----
